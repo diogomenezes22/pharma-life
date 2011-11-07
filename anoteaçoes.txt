@@ -1,0 +1,64 @@
+Observe que o sinal de atribuição em Object Pascal é ":=" e, não o sinal de igual simplesmente.
+
+Em Object Pascal podem-se usar os seguintes operadores aritméticos:
+
+	+      : Soma;
+ 	-       : Subtração;
+ 	*      : Multiplicação;
+	/       : Divisão;
+	div    : Divisão inteira
+	mod : Resto da divisão inteira.
+O Object Pascal tem várias funções predefinidas, parte das quais listamos a seguir:
+
+	Abs(x) Retoma o valor absoluto de x.
+	ArcTan(x) Retorna o valor do arco tangente de x (em radianos).
+	Cos(x) Retorna o cosseno de x (x em radianos).
+	Dec(x) Decrementa (subtrai 1) uma variável inteira x.
+	Exp(x) Retorna o valor de e elevado a x, onde e é a base dos logaritmos neperianos.
+	Frac(x) Retorna a parte fracionária do real x.
+	lnc(x) Incrementa (soma 1) uma variável inteira x.
+	lnt(x) Retorna a parte inteira do real x.
+	Ln(x) Retorna o logaritmo neperiano de x.
+	ODD(x) Retorna True se x for impar.
+	Sqr(x) Retorna o quadrado de x.
+	Sqrt(x) Retorna a raiz quadrada de x.
+
+
+var dados: String;
+begin
+  if (dbgProdutos.SelectedIndex = 1) then
+  begin
+  dados := dbgProdutos.Columns.Items[dbgProdutos.SelectedIndex].Field.Text;
+  DataModule1.adoProdutos.Locate('prod_nome', dados, [loCaseInsensitive, loPartialKey]);
+
+
+
+procedure TfrmProdutos.dbgProdutosTitleClick(Column: TColumn);
+var Campo:String;
+    i: integer;
+begin
+   //para todas as colunas
+  for i := 0 to dbgProdutos.Columns.count-1 do
+  begin
+    dbgProdutos.Columns[i].Title.Color := clBtnFace; //fundo padrão
+    dbgProdutos.Columns[i].Title.Font.Color := clBlack; //texto preto
+    dbgProdutos.Columns[i].Title.Font.Style := []; //sem efeito
+  end;
+
+   Campo:= Column.FieldName;
+   DataModule1.queryProdutos.Close;
+   DataModule1.queryProdutos.SQL.Clear;
+   if (ordenar_2 = true)
+    then
+      begin
+      DataModule1.queryProdutos.SQL.Add('SELECT * FROM tlb_produtos ORDER BY '+Campo);
+      ordenar_2 := false;
+      end
+    else
+      begin
+      DataModule1.queryProdutos.SQL.Add('SELECT * FROM tlb_produtos ORDER BY '+Campo+' DESC');
+      ordenar_2 := true;
+      end;
+   DataModule1.queryProdutos.ExecSQL;
+   DataModule1.queryProdutos.Open;
+end;

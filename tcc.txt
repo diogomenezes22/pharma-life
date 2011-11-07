@@ -1,0 +1,44 @@
+Cancelar
+---------------------------------------------
+If MessageDlg('Deseja realmente cancelar as modificações ?', mtConfirmation, 
+[mbYes,mbNo], 0) = mrYes Then
+Modulo.cdsContatos.Cancel;
+end;
+
+procedure TForm1.OpenForm(FClass: TFormClass; var Instance);
+  begin
+          if Assigned(TForm(Instance)) then begin
+                        TForm(Instance).SetFocus;
+                        TForm(Instance).WindowState := wsNormal;
+                        TForm(Instance).BringToFront;
+          end else
+                        Application.CreateForm(FClass, Instance);
+  end;
+
+
+Validação
+--------------------------------------------
+For i:=0 to ComponentCount-1 do
+  if Components[i] is TDBEdit then
+  begin
+    if TDBEdit(Components[i]).Text = '' then
+    begin
+    ShowMessage('Existem campos que não foram preenxidos');
+    TDBEdit(Components[i]).setfocus;
+    btnSalvar.Enabled := true;
+    DataModule1.adoFornecedor.Edit;
+    break;
+    end
+    else
+    begin
+     if DataModule1.adoFornecedor.State <> dsEdit then
+     begin
+     DataModule1.adoFornecedor.Edit
+     end;
+    DataModule1.adoFornecedor.Post;
+    btnAdd.Enabled := true;
+    btnEdit.Enabled := true;
+    btnSalvar.Enabled := false;
+    btnExcluir.Enabled := true;
+    end;
+  end;

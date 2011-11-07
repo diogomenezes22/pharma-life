@@ -1,0 +1,38 @@
+program pharmalife;
+
+uses
+  Forms,
+  untMenu in 'untMenu.pas' {frmMenu},
+  untClasses in 'untClasses.pas',
+  untbanco in 'untbanco.pas' {dtmServer: TDataModule},
+  untCadastroP in 'untCadastroP.pas' {frmCadastroGeral},
+  untcadCategorias in 'untcadCategorias.pas' {frmCadastroCategorias},
+  untPesquisaGeral in 'untPesquisaGeral.pas' {frmPesquisaGeral},
+  untPesquisaCategorias in 'untPesquisaCategorias.pas' {frmPesquisaCategorias},
+  untCadastroClientes in 'untCadastroClientes.pas' {frmCadastroClientes},
+  untPesquisaClientes in 'untPesquisaClientes.pas' {frmPesquisaClientes},
+  untCadastroForncedor in 'untCadastroForncedor.pas' {frmCadastroForncedor},
+  untPesquisaFornecedor in 'untPesquisaFornecedor.pas' {frmPesquisaForncedor},
+  untCadastroLaboratorios in 'untCadastroLaboratorios.pas' {frmCadastroLaboratorios},
+  untPesquisaLaboratorios in 'untPesquisaLaboratorios.pas' {frmPesquisaLab},
+  untCadastroGrupos in 'untCadastroGrupos.pas' {frmCadastroGrupos},
+  untPesquisaGrupos in 'untPesquisaGrupos.pas' {frmPesquisaGrupos},
+  untCadastroProdutos in 'untCadastroProdutos.pas' {frmCadastroProdutos},
+  untPesquisaProdutos in 'untPesquisaProdutos.pas' {frmPesquisaProdutos},
+  untEntrada in 'untEntrada.pas' {frmCadastroMovi},
+  unitPesquisaRapidaProdutos in 'unitPesquisaRapidaProdutos.pas' {frmPesquisaRapidaProdutos},
+  untPesquisaRapidaForne in 'untPesquisaRapidaForne.pas' {frmPesquisaRapidaForn},
+  untVEntrada in 'untVEntrada.pas' {frmGerenciaEntrada};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.Title := 'Sistema de Gerenciamento de Farmacias - Pharma Life';
+  Application.CreateForm(TfrmMenu, frmMenu);
+  Application.CreateForm(TdtmServer, dtmServer);
+  Application.CreateForm(TfrmPesquisaRapidaProdutos, frmPesquisaRapidaProdutos);
+  Application.CreateForm(TfrmPesquisaRapidaForn, frmPesquisaRapidaForn);
+  Application.CreateForm(TfrmGerenciaEntrada, frmGerenciaEntrada);
+  Application.Run;
+end.
