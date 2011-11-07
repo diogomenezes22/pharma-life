@@ -8,7 +8,7 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 575
-  ExplicitHeight = 491
+  ExplicitHeight = 487
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -25,8 +25,8 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
       Caption = 'Cadastro de Laboratorios'
     end
     inherited tlbBotoes: TToolBar
-      Width = 549
-      ExplicitWidth = 549
+      Width = 554
+      ExplicitWidth = 554
       inherited btnVoltar: TToolButton
         OnClick = btnVoltarClick
       end
@@ -38,6 +38,7 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
   inherited pagCadastro: TPageControl
     Width = 569
     ActivePage = TabSheet1
+    ExplicitTop = 89
     ExplicitWidth = 569
     object TabSheet1: TTabSheet [0]
       Caption = 'Lista de dados'
@@ -66,21 +67,18 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
             Expanded = False
             FieldName = 'nome'
             Title.Caption = 'NOME'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'nome_representante'
             Title.Caption = 'REPRESENTANTE'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'telefone'
             Title.Caption = 'TELEFONE'
-            Width = 64
             Visible = True
           end
           item
@@ -93,7 +91,6 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
             Expanded = False
             FieldName = 'rua'
             Title.Caption = 'RUA'
-            Width = 64
             Visible = True
           end
           item
@@ -106,28 +103,24 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
             Expanded = False
             FieldName = 'bairro'
             Title.Caption = 'BAIRRO'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cidade'
             Title.Caption = 'CIDADE'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'estado'
             Title.Caption = 'ESTADO'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'pais'
             Title.Caption = 'PAIS'
-            Width = 64
             Visible = True
           end>
       end

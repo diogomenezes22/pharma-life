@@ -136,7 +136,10 @@ procedure TfrmMenu.FormCreate(Sender: TObject);
 begin
    frmMenu.Caption := Software.Nome + ' ' + Software.Versao;
    FrmLogin := TFrmLogin.Create(Self);
-   trYcon.Icon.LoadFromFile('../imgs/ico/add2.ico');
+   trYcon.Icon.LoadFromFile('../imgs/icons/0.ico');
+   imgBack.Picture.LoadFromFile('../imgs/background.jpg');
+   colbPainel.Bitmap.LoadFromFile('../imgs/bgpainel.bmp');
+
   try
     if FrmLogin.ShowModal = mrOk then
     begin
@@ -160,8 +163,6 @@ begin
    top:= 0;
    left:= 0;
   end;
-  imgBack.Picture.LoadFromFile('../imgs/background.jpg');
-  colbPainel.Bitmap.LoadFromFile('../imgs/bgpainel.bmp');
   stbMenu.Panels[0].Text := getData;
 end;
 

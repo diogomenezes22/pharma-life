@@ -93,7 +93,7 @@ object dmcadlab: Tdmcadlab
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'Select * from tlb_laboratorios')
+      'Select cod_lab, nome, telefone from tlb_laboratorios')
     Left = 156
     Top = 72
   end

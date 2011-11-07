@@ -35,6 +35,7 @@ type
     procedure btnCancelarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
 
   private
     { Private declarations }
@@ -159,5 +160,10 @@ begin
 end;
 
 
+
+procedure TfrmCadastroGeral.FormCreate(Sender: TObject);
+begin
+ clbPainel.Bitmap.LoadFromFile('../imgs/bgtitle.bmp');
+end;
 
 end.

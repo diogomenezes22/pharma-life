@@ -8,7 +8,7 @@ inherited frmCadastroClientes: TfrmCadastroClientes
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 575
-  ExplicitHeight = 577
+  ExplicitHeight = 573
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -27,10 +27,8 @@ inherited frmCadastroClientes: TfrmCadastroClientes
       ExplicitWidth = 588
     end
     inherited tlbBotoes: TToolBar
-      Left = 12
-      Width = 549
-      ExplicitLeft = 12
-      ExplicitWidth = 549
+      Width = 554
+      ExplicitWidth = 554
       inherited btnVoltar: TToolButton
         OnClick = btnVoltarClick
       end
@@ -42,7 +40,7 @@ inherited frmCadastroClientes: TfrmCadastroClientes
   inherited pagCadastro: TPageControl
     Width = 569
     Height = 496
-    ActivePage = TabSheet1
+    ExplicitTop = 89
     ExplicitWidth = 569
     ExplicitHeight = 496
     object TabSheet1: TTabSheet [0]

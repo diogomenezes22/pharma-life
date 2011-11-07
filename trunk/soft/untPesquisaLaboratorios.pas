@@ -10,6 +10,8 @@ type
   TfrmPesquisaLab = class(TfrmPesquisaGeral)
     procedure btnPesquisaClick(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -35,7 +37,7 @@ begin
   end else
   dmcadlab.queryLabs.Close;
   dmcadlab.queryLabs.SQL.Clear;
-  dmcadlab.queryLabs.SQL.Add('SELECT * FROM');
+  dmcadlab.queryLabs.SQL.Add('SELECT cod_lab, nome, telefone FROM');
   dmcadlab.queryLabs.SQL.Add('tlb_laboratorios');
   dmcadlab.queryLabs.SQL.Add('WHERE nome');
   dmcadlab.queryLabs.SQL.Add('LIKE ''%' +consulta + '%'' ');
@@ -53,6 +55,18 @@ inherited;
   dmcadlab.adoLabs.Locate('nome', dados, [loCaseInsensitive, loPartialKey]);
   frmPesquisaLab.Close;
   end;
+end;
+
+procedure TfrmPesquisaLab.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+    dmcadlab.queryLabs.Close;
+end;
+
+procedure TfrmPesquisaLab.FormCreate(Sender: TObject);
+begin
+  inherited;
+  dmcadlab.queryLabs.Open;
 end;
 
 end.

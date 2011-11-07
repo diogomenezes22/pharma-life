@@ -8,7 +8,7 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 603
-  ExplicitHeight = 490
+  ExplicitHeight = 486
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -25,10 +25,8 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
       Caption = 'Cadastro de Produtos'
     end
     inherited tlbBotoes: TToolBar
-      Left = 12
-      Width = 577
-      ExplicitLeft = 12
-      ExplicitWidth = 577
+      Width = 582
+      ExplicitWidth = 582
       inherited btnVoltar: TToolButton
         OnClick = btnVoltarClick
       end
@@ -41,6 +39,7 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
     Width = 597
     Height = 552
     ActivePage = TabSheet1
+    ExplicitTop = 89
     ExplicitWidth = 597
     ExplicitHeight = 552
     object TabSheet1: TTabSheet [0]
@@ -64,17 +63,22 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
           item
             Expanded = False
             FieldName = 'cod'
+            Title.Caption = 'C'#243'digo'
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'codigo_barra'
+            Title.Caption = 'C'#243'd. Barras'
+            Width = 160
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'prod_nome'
-            Width = 155
+            Title.Alignment = taCenter
+            Title.Caption = 'Produto'
+            Width = 250
             Visible = True
           end
           item

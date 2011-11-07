@@ -112,7 +112,7 @@ object dmCadCliente: TdmCadCliente
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'select * from tlb_clientes')
+      'Select cod, nome,  rg, cpf from tlb_clientes')
     Left = 132
     Top = 76
   end

@@ -11,6 +11,8 @@ type
   TfrmPesquisaClientes = class(TfrmPesquisaGeral)
     procedure btnPesquisaClick(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -54,6 +56,19 @@ inherited;
   dmCadCliente.adoClientes.Locate('nome', dados, [loCaseInsensitive, loPartialKey]);
   frmPesquisaClientes.Close;
   end;
+end;
+
+procedure TfrmPesquisaClientes.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  inherited;
+  dmCadCliente.queryClientes.Close;
+end;
+
+procedure TfrmPesquisaClientes.FormCreate(Sender: TObject);
+begin
+  inherited;
+  dmCadCliente.queryClientes.Open;
 end;
 
 end.

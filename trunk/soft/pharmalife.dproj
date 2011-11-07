@@ -152,6 +152,15 @@
 				<Form>dmCadUsuario</Form>
 				<DesignClass>TDataModule</DesignClass>
 			</DCCReference>
+			<DCCReference Include="untPesquisaClientes.pas">
+				<Form>frmPesquisaClientes</Form>
+			</DCCReference>
+			<DCCReference Include="untPesquisaFornecedor.pas">
+				<Form>frmPesquisaForncedor</Form>
+			</DCCReference>
+			<DCCReference Include="RClientes.pas">
+				<Form>Form1</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

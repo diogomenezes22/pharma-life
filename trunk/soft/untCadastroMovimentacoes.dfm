@@ -4,7 +4,7 @@ inherited frmCadastroMov: TfrmCadastroMov
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 577
-  ExplicitHeight = 466
+  ExplicitHeight = 462
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -30,10 +30,6 @@ inherited frmCadastroMov: TfrmCadastroMov
     object TabSheet1: TTabSheet [0]
       Caption = 'Produtos em Estoque'
       ImageIndex = 10
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label3: TLabel
         Left = 3
         Top = 255
@@ -296,8 +292,10 @@ inherited frmCadastroMov: TfrmCadastroMov
       object btnPesquisaRaP: TBitBtn
         Left = 456
         Top = 61
-        Width = 21
+        Width = 25
         Height = 23
+        BiDiMode = bdLeftToRight
+        Caption = '^'
         DoubleBuffered = True
         Enabled = False
         Glyph.Data = {
@@ -335,6 +333,7 @@ inherited frmCadastroMov: TfrmCadastroMov
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFFEAEBEDFFDEDFE2FFEFF0F2FFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        ParentBiDiMode = False
         ParentDoubleBuffered = False
         TabOrder = 10
         OnClick = btnPesquisaRaPClick

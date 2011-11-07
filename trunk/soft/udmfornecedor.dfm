@@ -91,71 +91,11 @@ object dmfornecedor: Tdmfornecedor
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'Select * from tlb_fornecedor')
+      
+        'Select cod,  empresa, telefone_comercial, telefone_cel from tlb_' +
+        'fornecedor')
     Left = 132
     Top = 80
-    object queryFornecedorcod: TAutoIncField
-      FieldName = 'cod'
-      ReadOnly = True
-    end
-    object queryFornecedorvendedor: TWideStringField
-      FieldName = 'vendedor'
-      Size = 50
-    end
-    object queryFornecedorempresa: TWideStringField
-      FieldName = 'empresa'
-      Size = 50
-    end
-    object queryFornecedorcnpj: TWideStringField
-      FieldName = 'cnpj'
-      Size = 18
-    end
-    object queryFornecedorim: TWideStringField
-      FieldName = 'im'
-    end
-    object queryFornecedorie: TWideStringField
-      FieldName = 'ie'
-    end
-    object queryFornecedortelefone_cel: TWideStringField
-      FieldName = 'telefone_cel'
-      Size = 18
-    end
-    object queryFornecedortelefone_comercial: TWideStringField
-      FieldName = 'telefone_comercial'
-      Size = 18
-    end
-    object queryFornecedoremail: TWideStringField
-      FieldName = 'email'
-      Size = 50
-    end
-    object queryFornecedornumero: TWideStringField
-      FieldName = 'numero'
-      Size = 10
-    end
-    object queryFornecedorrua: TWideStringField
-      FieldName = 'rua'
-      Size = 50
-    end
-    object queryFornecedorbairro: TWideStringField
-      FieldName = 'bairro'
-      Size = 50
-    end
-    object queryFornecedorcidade: TWideStringField
-      FieldName = 'cidade'
-      Size = 30
-    end
-    object queryFornecedorestado: TWideStringField
-      FieldName = 'estado'
-      Size = 2
-    end
-    object queryFornecedorpais: TWideStringField
-      FieldName = 'pais'
-      Size = 30
-    end
-    object queryFornecedoranotacoes: TMemoField
-      FieldName = 'anotacoes'
-      BlobType = ftMemo
-    end
   end
   object dtsEstados: TDataSource
     DataSet = adoEstados

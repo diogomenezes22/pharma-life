@@ -1,9 +1,15 @@
 inherited frmPesquisaLab: TfrmPesquisaLab
   Caption = 'Pesquisa - Laboratorios'
   OldCreateOrder = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  ExplicitWidth = 554
+  ExplicitHeight = 448
   PixelsPerInch = 96
   TextHeight = 13
   inherited DBGrid1: TDBGrid
+    Top = 55
+    DataSource = dmcadlab.dtsLabsQr
     OnCellClick = DBGrid1CellClick
     Columns = <
       item
@@ -18,49 +24,54 @@ inherited frmPesquisaLab: TfrmPesquisaLab
       item
         Expanded = False
         FieldName = 'nome'
+        Title.Alignment = taCenter
         Title.Caption = 'Laboratorio'
+        Width = 250
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'telefone'
+        Title.Alignment = taCenter
+        Title.Caption = 'Telefone'
+        Width = 200
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'cnpj'
-        Visible = True
+        Visible = False
       end
       item
         Expanded = False
         FieldName = 'endereco'
-        Visible = True
+        Visible = False
       end
       item
         Expanded = False
         FieldName = 'numero'
-        Visible = True
+        Visible = False
       end
       item
         Expanded = False
         FieldName = 'bairro'
-        Visible = True
+        Visible = False
       end
       item
         Expanded = False
         FieldName = 'cidade'
-        Visible = True
+        Visible = False
       end
       item
         Expanded = False
         FieldName = 'estado'
-        Visible = True
+        Visible = False
       end
       item
         Expanded = False
         FieldName = 'pais'
-        Width = 68
-        Visible = True
+        Width = -1
+        Visible = False
       end>
   end
   inherited btnPesquisa: TButton
