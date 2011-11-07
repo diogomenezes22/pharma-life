@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2011/10/06 10:56:19.921.pas,D:\Documentos\RAD Studio\Projects\Unit1.pas=C:\tcc\soft\uCalculoDLL.pas</Transaction>
+    <Transaction>2011/10/06 10:56:19.921.dfm,D:\Documentos\RAD Studio\Projects\Unit1.dfm=C:\tcc\soft\uCalculoDLL.dfm</Transaction>
+    <Transaction>2011/10/06 10:56:26.609.dproj,D:\Documentos\RAD Studio\Projects\Project1.dproj=C:\tcc\soft\DLLTeste.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

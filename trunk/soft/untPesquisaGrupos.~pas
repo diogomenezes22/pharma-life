@@ -1,0 +1,39 @@
+unit untPesquisaGrupos;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, untPesquisaGeral, Buttons, StdCtrls, Grids, DBGrids;
+
+type
+  TfrmPesquisaGrupos = class(TfrmPesquisaGeral)
+    procedure DBGrid1CellClick(Column: TColumn);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPesquisaGrupos: TfrmPesquisaGrupos;
+
+implementation
+
+uses untbanco;
+
+{$R *.dfm}
+
+procedure TfrmPesquisaGrupos.DBGrid1CellClick(Column: TColumn);
+ var dados: String;
+begin
+inherited;
+  if (dbGrid1.SelectedIndex = 1) then
+  begin
+  dados := dbGrid1.Columns.Items[dbGrid1.SelectedIndex].Field.Text;
+  dtmServer.adoGrupos.Locate('descricao', dados, [loCaseInsensitive, loPartialKey]);
+  frmPesquisaGrupos.Close;
+  end;
+end;
+
+end.

@@ -1,0 +1,122 @@
+unit untCadastroGrupos;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, untCadastroP, ImgList, ComCtrls, StdCtrls, ToolWin, Mask,
+  DBCtrls, Grids, DBGrids;
+
+type
+  TfrmCadastroGrupos = class(TfrmCadastroGeral)
+    Label1: TLabel;
+    TabSheet1: TTabSheet;
+    DBGrid1: TDBGrid;
+    DBEdit1: TDBEdit;
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnVoltarClick(Sender: TObject);
+    procedure btnAvanClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure btnPesquisaClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroGrupos: TfrmCadastroGrupos;
+
+implementation
+
+uses untbanco, untClasses, untPesquisaGrupos;
+
+{$R *.dfm}
+
+procedure TfrmCadastroGrupos.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+  dtmServer.adoGrupos.Insert;
+end;
+
+procedure TfrmCadastroGrupos.btnEditarClick(Sender: TObject);
+begin
+  inherited;
+  dtmServer.adoGrupos.Edit;
+end;
+
+procedure TfrmCadastroGrupos.btnVoltarClick(Sender: TObject);
+begin
+  inherited;
+  dtmServer.adoGrupos.Prior
+end;
+
+procedure TfrmCadastroGrupos.btnAvanClick(Sender: TObject);
+begin
+  inherited;
+  dtmServer.adoGrupos.Next;
+end;
+
+procedure TfrmCadastroGrupos.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+    if (setQuestion('Deseja desfazer as alterações?')= true) then
+  begin
+  dtmServer.adoGrupos.CancelUpdates;
+  end
+  else
+  begin
+  dtmServer.adoGrupos.Edit;
+  end;
+end;
+
+procedure TfrmCadastroGrupos.btnSalvarClick(Sender: TObject);
+begin
+  dtmServer.adoGrupos.Post;
+  dtmServer.adoGrupos.Refresh;
+  inherited;
+end;
+
+procedure TfrmCadastroGrupos.btnExcluirClick(Sender: TObject);
+begin
+  inherited;
+  if (setQuestion('Deseja apagar o registro atual?') = true) then
+  begin
+  setMensagemSTB('Dados apagados com sucesso!');
+  dtmServer.adoGrupos.Delete;
+  end;
+end;
+
+procedure TfrmCadastroGrupos.btnSairClick(Sender: TObject);
+begin
+  inherited;
+  Close;
+end;
+
+procedure TfrmCadastroGrupos.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  pagCadastro.ActivePageIndex := 0;
+end;
+
+procedure TfrmCadastroGrupos.btnPesquisaClick(Sender: TObject);
+begin
+  inherited;
+  frmPesquisaGrupos := TfrmPesquisaGrupos.Create(Self);
+  frmPesquisaGrupos.ShowModal;
+end;
+
+procedure TfrmCadastroGrupos.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  inherited;
+  frmCadastroGrupos := nil;
+end;
+
+end.

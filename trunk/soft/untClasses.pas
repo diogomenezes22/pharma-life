@@ -1,0 +1,96 @@
+unit untClasses;
+
+interface
+
+uses Windows, SysUtils, Graphics, Mask, DBCtrls, DB, DBTables, StdCtrls,
+Forms, Registry, Classes, ComCtrls;
+
+type RSoftware = record
+  const
+     Nome = 'Pharma Life' ;
+     Versao = 'V1.0';
+     Ano = '2011' ;
+end;
+
+type RUsuario = record
+     nome:string;
+     usuario:string;
+     senha:string;
+     nivel:integer;
+end;
+
+
+function setQuestion(strPergunta:string):boolean;
+function getData:string;
+function getHora:string;
+procedure setMensagem(texto:string);
+function ToString(Value: Variant): String;
+
+
+var Software : RSoftware;
+    UsuarioSys : RUsuario;
+
+implementation
+
+function setQuestion(strPergunta:string):boolean;
+var valor:boolean;
+begin
+
+if(MessageBox(0,PChar(strPergunta),'Pharma Life - Pergunta',mb_yesno+mb_iconquestion)= 6) then
+  begin
+  valor:= true;
+  end
+else
+  begin
+  valor:=false;
+  end;
+  Result:=valor;
+end;
+
+function getData:string;
+var
+ diasemana:integer;
+ semana:string;
+begin
+
+  diasemana:= DayOfWeek(Now);
+    case diasemana of
+    1: semana:='Domingo - ';
+    2: semana:='Segunda-feira - ';
+    3: semana:='Terça-feira - ';
+    4: semana:='Quarta-feira - ';
+    5: semana:='Quinta-feira - ';
+    6: semana:='Sexta-feira - ';
+    7: semana:='Sabado - ';
+    end;
+   result := semana+datetostr(date);
+end;
+
+function getHora:string;
+begin
+ result := TimetoStr(getTime);
+end;
+
+procedure setMensagem(texto:string);
+begin
+ Application.MessageBox(PChar(texto),'Mensagem',mb_ok+mb_iconExclamation);
+end;
+
+function ToString(Value: Variant): String; 
+begin
+  case TVarData(Value).VType of 
+    varSmallInt, 
+    varInteger   : Result := IntToStr(Value); 
+    varSingle, 
+    varDouble, 
+    varCurrency  : Result := FloatToStr(Value); 
+    varDate      : Result := FormatDateTime('dd/mm/yyyy', Value); 
+    varBoolean   : if Value then Result := 'True' else Result := 'False';
+    varString    : Result := Value; 
+    else           Result := ''; 
+  end; 
+end;
+
+
+
+end.

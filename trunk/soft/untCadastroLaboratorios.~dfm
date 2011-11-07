@@ -1,0 +1,497 @@
+inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
+  Left = -8
+  Top = -8
+  Caption = 'Cadastro de Laboratorios'
+  ClientHeight = 706
+  ClientWidth = 1360
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited clbPainel: TCoolBar
+    Width = 1360
+    Bands = <
+      item
+        Control = tlbBotoes
+        ImageIndex = -1
+        MinHeight = 55
+        Width = 1356
+      end>
+    inherited lblTitulo: TLabel
+      Caption = 'Cadastro de Laboratorios'
+    end
+    inherited tlbBotoes: TToolBar
+      Width = 1343
+      inherited btnVoltar: TToolButton
+        OnClick = btnVoltarClick
+      end
+      inherited btnAvan: TToolButton
+        OnClick = btnAvanClick
+      end
+    end
+  end
+  inherited pagCadastro: TPageControl
+    Width = 1360
+    inherited pag1Cad: TTabSheet
+      Caption = 'Dados cadastrais'
+      object GroupBox1: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 1352
+        Height = 169
+        Align = alTop
+        Caption = '| Cadastro de Laboratorios |'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        object Label2: TLabel
+          Left = 8
+          Top = 25
+          Width = 31
+          Height = 13
+          Caption = 'Nome:'
+          FocusControl = DBEdit2
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label3: TLabel
+          Left = 184
+          Top = 55
+          Width = 30
+          Height = 13
+          Caption = 'CNPJ:'
+          FocusControl = DBEdit3
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label5: TLabel
+          Left = 21
+          Top = 52
+          Width = 18
+          Height = 13
+          Caption = 'Tel:'
+          FocusControl = DBEdit4
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label6: TLabel
+          Left = 10
+          Top = 81
+          Width = 31
+          Height = 13
+          Caption = 'Ende.:'
+          FocusControl = DBEdit5
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label7: TLabel
+          Left = 295
+          Top = 82
+          Width = 11
+          Height = 13
+          Caption = 'N:'
+          FocusControl = DBEdit6
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label8: TLabel
+          Left = 15
+          Top = 105
+          Width = 30
+          Height = 13
+          Caption = 'Bairro:'
+          FocusControl = DBEdit7
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label9: TLabel
+          Left = 248
+          Top = 110
+          Width = 36
+          Height = 13
+          Caption = 'Cidade:'
+          FocusControl = DBEdit8
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label11: TLabel
+          Left = 422
+          Top = 110
+          Width = 36
+          Height = 13
+          Caption = 'Estado:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label12: TLabel
+          Left = 22
+          Top = 137
+          Width = 23
+          Height = 13
+          Caption = 'Pais:'
+          FocusControl = DBEdit10
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label1: TLabel
+          Left = 311
+          Top = 25
+          Width = 40
+          Height = 13
+          Caption = 'Repres.:'
+          FocusControl = DBEdit1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object DBEdit2: TDBEdit
+          Left = 64
+          Top = 22
+          Width = 233
+          Height = 21
+          Hint = 'Nome do Laboratorio'
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'nome'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+        object DBEdit3: TDBEdit
+          Left = 224
+          Top = 51
+          Width = 328
+          Height = 21
+          Hint = 'CNPJ'
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'cnpj'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 18
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+        end
+        object DBEdit4: TDBEdit
+          Left = 64
+          Top = 50
+          Width = 114
+          Height = 21
+          Hint = 'Telefone'
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'telefone'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 14
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+        end
+        object DBEdit5: TDBEdit
+          Left = 64
+          Top = 78
+          Width = 225
+          Height = 21
+          Hint = 'Endere'#231'o'
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'rua'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+        end
+        object DBEdit6: TDBEdit
+          Left = 310
+          Top = 78
+          Width = 73
+          Height = 21
+          Hint = 'Numero'
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'numero'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+        end
+        object DBEdit7: TDBEdit
+          Left = 64
+          Top = 106
+          Width = 175
+          Height = 21
+          Hint = 'Bairro'
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'bairro'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+        end
+        object DBEdit8: TDBEdit
+          Left = 288
+          Top = 106
+          Width = 129
+          Height = 21
+          Hint = 'Cidade'
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'cidade'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 6
+        end
+        object DBEdit10: TDBEdit
+          Left = 64
+          Top = 134
+          Width = 73
+          Height = 21
+          Hint = 'Pais'
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'pais'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 8
+        end
+        object DBLookupComboBox1: TDBLookupComboBox
+          Left = 461
+          Top = 105
+          Width = 44
+          Height = 21
+          Hint = 'Estado - UF'
+          DataField = 'estado'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          KeyField = 'uf'
+          ListField = 'uf'
+          ListSource = dtmServer.dtsEstados
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 7
+        end
+        object DBEdit1: TDBEdit
+          Left = 357
+          Top = 22
+          Width = 196
+          Height = 21
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'nome_representante'
+          DataSource = dtmServer.dtsLabs
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 9
+        end
+      end
+    end
+    object TabSheet1: TTabSheet
+      Caption = 'Lista de dados'
+      ImageIndex = 1
+      object dbgLabs: TDBGrid
+        Left = 0
+        Top = 0
+        Width = 625
+        Height = 337
+        DataSource = dtmServer.dtsLabs
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+        OnDblClick = dbgLabsDblClick
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'cod_lab'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'nome'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'nome_representante'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'telefone'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'cnpj'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'rua'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'numero'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'bairro'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'cidade'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'estado'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'pais'
+            Visible = True
+          end>
+      end
+    end
+  end
+  inherited stbCad: TStatusBar
+    Top = 687
+    Width = 1360
+  end
+end

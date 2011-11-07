@@ -1,0 +1,7 @@
+select cod_produto, cod_manobra, sum(quantidade) as TOTAL from tlb_movimentacao 
+group by cod_produto, cod_manobra
+
+
+select cod_produto, cod_manobra, sum(quantidade) as totalL from tlb_movimentacao
+where cod_produto = 1 and cod_manobra =1 
+group by cod_produto, cod_manobra

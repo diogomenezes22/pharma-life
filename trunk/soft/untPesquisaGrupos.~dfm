@@ -1,0 +1,10 @@
+inherited frmPesquisaGrupos: TfrmPesquisaGrupos
+  Caption = 'Pesquisa - Grupos'
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited DBGrid1: TDBGrid
+    DataSource = dtmServer.stsGruposQ
+    OnCellClick = DBGrid1CellClick
+  end
+end

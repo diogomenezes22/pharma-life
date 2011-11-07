@@ -1,0 +1,315 @@
+unit untEntrada;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Buttons, StdCtrls, Grids, DBGrids, ComCtrls, untbanco, untClasses,
+  ADODB, DB, DBCtrls;
+
+type
+  TfrmCadastroMovi = class(TForm)
+    grpProduto: TGroupBox;
+    label1: TLabel;
+    rbEntrada: TRadioButton;
+    rbSaida: TRadioButton;
+    lblProduto: TLabel;
+    edtProduto: TEdit;
+    SpeedButton1: TSpeedButton;
+    edtHistorico: TEdit;
+    edtQuantidade: TEdit;
+    edtCusto: TEdit;
+    lblData: TLabel;
+    Label2: TLabel;
+    grpEstoque: TGroupBox;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    edtFornecedor: TEdit;
+    SpeedButton2: TSpeedButton;
+    edtData: TDateTimePicker;
+    SpeedButton3: TSpeedButton;
+    SpeedButton8: TSpeedButton;
+    dtsEstoque: TDataSource;
+    dbEstoque: TDBText;
+    adoEstoque: TADOTable;
+    adoEstoquecod_estoque: TAutoIncField;
+    adoEstoquecod_produto: TSmallintField;
+    adoEstoquequantidade: TSmallintField;
+    adoMovimentacao: TADOTable;
+    dtsMovimentacao: TDataSource;
+    adoMovimentacaocod_movimentacoes: TAutoIncField;
+    adoMovimentacaocod_manobra: TSmallintField;
+    adoMovimentacaocod_produto: TSmallintField;
+    adoMovimentacaodata: TDateTimeField;
+    adoMovimentacaohistorico: TWideStringField;
+    adoMovimentacaoquantidade: TSmallintField;
+    adoMovimentacaocusto: TBCDField;
+    adoMovimentacaocod_fornecedor: TSmallintField;
+    adoControler: TADOQuery;
+    dtsControler: TDataSource;
+    Label8: TLabel;
+    edtDataVal: TDateTimePicker;
+    adoMovimentacaodataval: TDateTimeField;
+    sbtnEntrada: TSpeedButton;
+    sbtnSaida: TSpeedButton;
+    adoMovimentacaolocal: TWideStringField;
+    Label9: TLabel;
+    edtLocalizacao: TEdit;
+    procedure set_data;
+    procedure limpa_campos;
+    function get_Valores(cod_produto:integer; cod_movimento:integer):integer;
+    function verifica_campos:Boolean;
+    procedure set_Estoque(cod_produto:integer);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure edtProdutoExit(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure edtFornecedorExit(Sender: TObject);
+    procedure SpeedButton8Click(Sender: TObject);
+    procedure sbtnEntradaClick(Sender: TObject);
+   
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroMovi: TfrmCadastroMovi;
+  Icampos:integer;
+
+implementation
+
+uses unitPesquisaRapidaProdutos, untPesquisaRapidaForne, untVEntrada;
+
+
+{$R *.dfm}
+
+procedure TfrmCadastroMovi.set_data;
+begin
+   edtData.Date := Date;
+   edtDataVal.Date := Date;
+end;
+
+procedure TfrmCadastroMovi.limpa_campos;
+var i:integer;
+begin
+    for i:=0 to ComponentCount - 1 do
+  begin
+     if (Components[i] is TEdit) then
+     begin
+        TEdit(Components[i]).Text := '';
+     end;
+     if (Components[i] is TRadioButton) then
+     begin
+         TRadioButton(Components[i]).Checked := false;
+     end;
+     set_data;
+  end;
+end;
+
+function TfrmCadastroMovi.get_Valores(cod_produto:integer;cod_movimento:integer):integer;
+begin
+    with adoControler do begin
+    Active := False;
+    SQL.Clear;
+    SQL.Add('SELECT SUM(quantidade) as SOMA FROM tlb_movimentacao');
+    SQL.Add('WHERE tlb_movimentacao.cod_manobra='+inttoStr(cod_movimento));
+    SQL.Add('AND tlb_movimentacao.cod_produto='+inttoStr(cod_produto));
+    ExecSQL;
+    Active := true;
+    Open;
+    end;
+    Result := adoControler.FieldByName('SOMA').asInteger;
+end;
+
+function TfrmCadastroMovi.verifica_campos:Boolean;
+var i:integer;
+begin
+Icampos := 0;
+for i:=0 to ComponentCount - 1 do
+ begin
+     if (Components[i] is TEdit) then
+     begin
+        if (TEdit(Components[i]).Text = '') then
+        begin
+           Icampos:=Icampos+1;
+        end;
+     end;
+end;
+if (Icampos = 0) then
+  begin
+  Result := true; // Retorna veradeiro se os campos estão limpos
+  end
+else
+  begin
+  Result := false; // Retorna falso se ñão tem camos limpos;
+  end;
+
+end;
+
+procedure TfrmCadastroMovi.set_Estoque(cod_produto:integer);
+var
+  entrada:integer;
+  saida:integer;
+  total:integer;
+begin
+  entrada := get_Valores(cod_produto,1);
+  saida := get_Valores(cod_produto,2);
+  total := entrada-saida;
+  adoEstoque.Active := true;
+  adoEstoque.Open;
+  try
+  if (adoEstoque.Locate('cod_produto', cod_produto, [loCaseInsensitive, loPartialKey])=true)
+    then begin
+    adoEstoque.Edit;
+    adoEstoque.FieldByName('Quantidade').asInteger:= total;
+    adoEstoque.Refresh;
+    end
+  else begin
+    adoEstoque.Insert;
+    adoEstoque.FieldByName('cod_produto').AsInteger := cod_produto;
+    adoEstoque.FieldByName('Quantidade').AsInteger := total;
+    adoEstoque.Post;
+    end;
+  limpa_campos;
+  edtProduto.SetFocus;
+  except
+  setMensagem('Erro: Impossivel Calcular Estoque!');
+  end;
+end;
+
+procedure TfrmCadastroMovi.SpeedButton1Click(Sender: TObject);
+begin
+   frmPesquisaRapidaProdutos := TfrmPesquisaRapidaProdutos.Create(Self);
+   frmPesquisaRapidaProdutos.ShowModal;
+end;
+
+procedure TfrmCadastroMovi.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+ Action := caFree;
+ frmCadastroMovi := nil;
+end;
+
+
+
+procedure TfrmCadastroMovi.edtProdutoExit(Sender: TObject);
+var
+  codigo_prod : string;
+begin
+  codigo_prod := edtProduto.Text;
+  if (codigo_prod = '') then
+    begin
+    setMensagem('Por favor informe o código do produto!');
+    edtProduto.SetFocus;
+    end
+  else
+    begin
+    adoEstoque.Active := true;
+    if(dtmServer.adoProdutos.Locate('cod', codigo_prod, [loCaseInsensitive, loPartialkey]) = false) then
+    begin
+    adoEstoque.Active:= false;
+    setMensagem('Erro: Produto não cadastrado!');
+    edtProduto.SetFocus;
+    end
+    else if(adoEstoque.Locate('cod_produto', codigo_prod, [loCaseInsensitive, loPartialKey]) = false)then
+    begin
+    adoEstoque.Active := false;
+    setMensagem('Produto não possui estoque!');
+    end
+end;
+
+end;
+
+procedure TfrmCadastroMovi.FormShow(Sender: TObject);
+begin
+    adoEstoque.Active := false;
+    set_data;
+end;
+
+procedure TfrmCadastroMovi.SpeedButton2Click(Sender: TObject);
+begin
+   frmPesquisaRapidaForn := TfrmPesquisaRapidaForn.Create(Self);
+   frmPesquisaRapidaForn.ShowModal;
+end;
+
+procedure TfrmCadastroMovi.SpeedButton3Click(Sender: TObject);
+ var manobra : integer;
+begin
+if (verifica_campos = false) then
+begin
+   setMensagem('Existem '+inttostr(Icampos)+' campos a serem preenchidos');
+end
+else
+   begin
+   if (not rbEntrada.Checked and not rbSaida.Checked) then
+      begin
+      setmensagem('Erro: Por favor selecione uma Movimentação');
+      end
+      else
+      begin
+           if (rbEntrada.Checked) then
+           begin
+            manobra := 1;
+           end
+           else
+           begin
+            manobra := 2;
+           end;
+      try
+      adoMovimentacao.Insert;
+      adoMovimentacao.FieldByName('cod_produto').AsInteger := strtoint(edtProduto.Text);
+      adoMovimentacao.FieldByName('cod_manobra').AsInteger := manobra;
+      adoMovimentacao.FieldByName('data').AsDateTime := edtData.Date;
+      adoMovimentacao.FieldByName('dataval').AsDateTime := edtDataVal.Date;
+      adoMovimentacao.FieldByName('historico').AsString := edtHistorico.Text;
+      adoMovimentacao.FieldByName('local').AsString := edtLocalizacao.Text;
+      adoMovimentacao.FieldByName('quantidade').AsInteger := strtoint(edtQuantidade.Text);
+      adoMovimentacao.FieldByName('custo').asFloat := strtoFloat(edtCusto.Text);
+      adoMovimentacao.FieldByName('cod_fornecedor').AsInteger := strtoint(edtFornecedor.Text);
+      adoMovimentacao.Post;
+      set_Estoque(strtoint(edtProduto.Text));
+      except
+      setMensagem('Erro ao Gravar dados...');
+      end;
+      end;
+end;
+end;
+
+procedure TfrmCadastroMovi.edtFornecedorExit(Sender: TObject);
+var cod_Fornecedor:string;
+begin
+  cod_fornecedor := edtFornecedor.Text;
+  if (cod_fornecedor = '') then
+    begin
+    setMensagem('Por favor informe o código do Fornecedor!');
+    edtFornecedor.SetFocus;
+    end
+  else
+    begin
+    if(dtmServer.adoFornecedor.Locate('cod', cod_fornecedor, [loCaseInsensitive, loPartialKey]) = false)
+    then begin
+    SetMensagem('Fornecedor não encontrado!');
+    edtFornecedor.SetFocus;
+    end;
+   end;
+end;
+
+procedure TfrmCadastroMovi.SpeedButton8Click(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TfrmCadastroMovi.sbtnEntradaClick(Sender: TObject);
+begin
+  frmGerenciaEntrada := TfrmGerenciaEntrada.Create(Application);
+  frmGerenciaEntrada.ShowModal;
+  
+end;
+
+end.

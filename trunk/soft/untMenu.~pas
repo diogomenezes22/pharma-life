@@ -1,0 +1,238 @@
+unit untMenu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Menus, ExtCtrls, ComCtrls, StdCtrls, jpeg, ToolWin, ImgList,
+  AppEvnts;
+
+type
+  TfrmMenu = class(TForm)
+    MainMenu1: TMainMenu;
+    Cadastros1: TMenuItem;
+    Estoque1: TMenuItem;
+    sobre1: TMenuItem;
+    Clientes1: TMenuItem;
+    Produtos1: TMenuItem;
+    Laboratorios1: TMenuItem;
+    Fornecedores1: TMenuItem;
+    OSoftware1: TMenuItem;
+    stbMenu: TStatusBar;
+    Timer1: TTimer;
+    imgBack: TImage;
+    Sair1: TMenuItem;
+    imgMenu: TImageList;
+    colbPainel: TCoolBar;
+    tolbPainel: TToolBar;
+    btSair: TToolButton;
+    btUsuario: TToolButton;
+    btForncedores: TToolButton;
+    btProdutos: TToolButton;
+    btLaboratorios: TToolButton;
+    Cadastros2: TMenuItem;
+    Cadastros3: TMenuItem;
+    Categorias1: TMenuItem;
+    Grupod1: TMenuItem;
+    AppHint: TApplicationEvents;
+    Janelas1: TMenuItem;
+    Alinhar1: TMenuItem;
+    Vertical1: TMenuItem;
+    Minimizar1: TMenuItem;
+    Maximizar1: TMenuItem;
+    Arranjar1: TMenuItem;
+    Fechar1: TMenuItem;
+    Cascata1: TMenuItem;
+    Movimentaes1: TMenuItem;
+    Estoque2: TMenuItem;
+    procedure openJanela(FClass: TFormClass; var Instance);
+    procedure FormShow(Sender: TObject);
+    procedure btSairClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure Categorias1Click(Sender: TObject);
+    procedure Sair1Click(Sender: TObject);
+    procedure btUsuarioClick(Sender: TObject);
+    procedure Cadastros2Click(Sender: TObject);
+    procedure btForncedoresClick(Sender: TObject);
+    procedure Fornecedores1Click(Sender: TObject);
+    procedure btLaboratoriosClick(Sender: TObject);
+    procedure Grupod1Click(Sender: TObject);
+    procedure Laboratorios1Click(Sender: TObject);
+    procedure AppHintHint(Sender: TObject);
+    procedure btProdutosClick(Sender: TObject);
+    procedure Cadastros3Click(Sender: TObject);
+    procedure Cascata1Click(Sender: TObject);
+    procedure Alinhar1Click(Sender: TObject);
+    procedure Vertical1Click(Sender: TObject);
+    procedure Arranjar1Click(Sender: TObject);
+    procedure Minimizar1Click(Sender: TObject);
+    procedure Fechar1Click(Sender: TObject);
+    procedure Maximizar1Click(Sender: TObject);
+    procedure Movimentaes1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+      { Public declarations }
+  end;
+
+var
+  frmMenu: TfrmMenu;
+
+implementation
+
+uses untClasses, untCadastroP, untcadCategorias, untbanco, untPesquisaGeral,
+untCadastroClientes, untCadastroForncedor, untCadastroLaboratorios,
+untCadastroGrupos, untCadastroProdutos, untEntrada;
+
+{$R *.dfm}
+
+
+
+procedure TfrmMenu.openJanela(FClass: TFormClass; var Instance);
+begin
+          if Assigned(TForm(Instance)) then begin
+                        TForm(Instance).SetFocus;
+                        TForm(Instance).WindowState := wsNormal;
+                        TForm(Instance).BringToFront;
+          end else
+                        Application.CreateForm(FClass, Instance);
+                        TForm(Instance).Top := 0;
+                        TForm(Instance).Left := 0;
+end;
+procedure TfrmMenu.FormShow(Sender: TObject);
+begin
+  with frmMenu do
+  begin
+   Height:= 768;
+   width:= 1024;
+   top:= 0;
+   left:= 0;
+  end;
+  imgBack.Picture.LoadFromFile('../imgs/background.jpg');
+  colbPainel.Bitmap.LoadFromFile('../imgs/bgpainel.bmp');
+  stbMenu.Panels[0].Text := getData;
+end;
+
+procedure TfrmMenu.btSairClick(Sender: TObject);
+begin
+Application.Terminate;
+end;
+
+procedure TfrmMenu.Timer1Timer(Sender: TObject);
+begin
+stbMenu.Panels[1].Text:= getHora;
+end;
+
+procedure TfrmMenu.Categorias1Click(Sender: TObject);
+begin
+openJanela(TfrmCadastroCategorias, frmCadastroCategorias);
+end;
+
+procedure TfrmMenu.Sair1Click(Sender: TObject);
+begin
+Application.Terminate;
+end;
+
+procedure TfrmMenu.btUsuarioClick(Sender: TObject);
+begin
+openJanela(TfrmCadastroClientes, frmCadastroClientes);
+end;
+
+procedure TfrmMenu.Cadastros2Click(Sender: TObject);
+begin
+openJanela(TfrmCadastroClientes, frmCadastroClientes);
+end;
+
+procedure TfrmMenu.btForncedoresClick(Sender: TObject);
+begin
+openJanela(TfrmCadastroForncedor, frmCadastroForncedor);
+end;
+
+procedure TfrmMenu.Fornecedores1Click(Sender: TObject);
+begin
+openJanela(TfrmCadastroForncedor, frmCadastroForncedor);
+end;
+
+procedure TfrmMenu.btLaboratoriosClick(Sender: TObject);
+begin
+openJanela(TfrmCadastroLaboratorios, frmCadastroLaboratorios);
+end;
+
+procedure TfrmMenu.Grupod1Click(Sender: TObject);
+begin
+openJanela(TfrmCadastroGrupos, frmCadastroGrupos);
+end;
+
+procedure TfrmMenu.Laboratorios1Click(Sender: TObject);
+begin
+openJanela(TfrmCadastroLaboratorios, frmCadastroLaboratorios);
+end;
+
+procedure TfrmMenu.AppHintHint(Sender: TObject);
+begin
+stbMenu.Panels[3].Text := Application.Hint;
+end;
+
+procedure TfrmMenu.btProdutosClick(Sender: TObject);
+begin
+openJanela(TfrmCadastroProdutos, frmCadastroProdutos);
+end;
+
+procedure TfrmMenu.Cadastros3Click(Sender: TObject);
+begin
+openJanela(TfrmCadastroProdutos, frmCadastroProdutos);
+end;
+
+procedure TfrmMenu.Cascata1Click(Sender: TObject);
+begin
+Cascade;
+end;
+
+procedure TfrmMenu.Alinhar1Click(Sender: TObject);
+begin
+TileMode := tbHorizontal;
+Tile;
+end;
+
+procedure TfrmMenu.Vertical1Click(Sender: TObject);
+begin
+TileMode := tbVertical;
+Tile;
+end;
+
+procedure TfrmMenu.Arranjar1Click(Sender: TObject);
+begin
+ArrangeIcons;
+end;
+
+procedure TfrmMenu.Minimizar1Click(Sender: TObject);
+var X : Byte;
+begin
+ for X := 0 to Pred(MDIChildCount) do
+ MDIChildren[X].WindowState := wsMinimized;
+ ActiveMDIChild.WindowState := wsMinimized;
+end;
+
+procedure TfrmMenu.Fechar1Click(Sender: TObject);
+var
+X : Byte;
+begin
+  if MDIChildCount > 0 then
+  for X := 0 to Pred(MDIChildCount) do
+  MDIChildren[X].Close;
+end;
+
+procedure TfrmMenu.Maximizar1Click(Sender: TObject);
+var X : Byte;
+begin
+ for X := 0 to Pred(MDIChildCount) do
+ MDIChildren[X].WindowState := wsMaximized;
+ ActiveMDIChild.WindowState := wsMaximized;
+end;
+
+procedure TfrmMenu.Movimentaes1Click(Sender: TObject);
+begin
+openJanela(TfrmCadastroMovi, frmCadastroMovi);
+end;
+
+end.

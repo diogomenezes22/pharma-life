@@ -1,0 +1,70 @@
+unit untPesquisaRapidaForne;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls;
+
+type
+  TfrmPesquisaRapidaForn = class(TForm)
+    Label1: TLabel;
+    editPesquisa: TEdit;
+    btnPesquisa: TButton;
+    btnSair: TButton;
+    grpBoxForn: TGroupBox;
+    lblCodNome: TLabel;
+    lblResultado: TLabel;
+    dbgFornecedores: TDBGrid;
+    procedure btnPesquisaClick(Sender: TObject);
+    procedure dbgFornecedoresDblClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPesquisaRapidaForn: TfrmPesquisaRapidaForn;
+  nome_fornecedor, cod_fornecedor :string;
+implementation
+
+uses untbanco, untClasses, untEntrada;
+
+{$R *.dfm}
+
+procedure TfrmPesquisaRapidaForn.btnPesquisaClick(Sender: TObject);
+var consulta:string;
+begin
+  consulta := editPesquisa.Text;
+  if (consulta = '') then begin
+     setMensagem('Por favor preencha o campo pesquisa!');
+     editPesquisa.SetFocus;
+  end else
+  dtmServer.queryClientes.Close;
+  dtmServer.queryClientes.SQL.Clear;
+  dtmServer.queryClientes.SQL.Add('SELECT * FROM');
+  dtmServer.queryClientes.SQL.Add('tlb_fornecedor');
+  dtmServer.queryClientes.SQL.Add('WHERE empresa');
+  dtmServer.queryClientes.SQL.Add('LIKE ''%' +consulta + '%'' ');
+  dtmServer.queryClientes.ExecSQL;
+  dtmServer.queryClientes.Open;
+end;
+
+
+procedure TfrmPesquisaRapidaForn.dbgFornecedoresDblClick(Sender: TObject);
+begin
+  cod_Forncedor := strtoint(dbgFornecedores.Columns.Items[0].Field.Text);
+  nome_fornecedor := dbgFornecedores.Columns.Items[1].Field.Text;
+  lblResultado.Caption := inttostr(codigo_prod)+'/'+nome_prod;
+end;
+
+procedure TfrmPesquisaRapidaForn.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+   frmCadastroMovi.edtFornecedor.text := cod_fornecedor;
+   frmCadastroMovi.edtFornecedor.SetFocus;
+end;
+
+end.

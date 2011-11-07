@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011/10/22 08:51:22.773,=C:\Users\TDS\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2011/10/22 08:51:42.123,=F:\tcc\soft\uTesteCOMANDOS.pas</Transaction>
+    <Transaction>2011/10/22 08:52:10.730,=C:\Users\TDS\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2011/10/22 08:53:21.767,F:\tcc\soft\udtmserver.dfm=C:\Users\TDS\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2011/10/22 08:53:21.767,F:\tcc\soft\udtmserver.pas=C:\Users\TDS\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2011/10/22 08:54:31.006,F:\tcc\soft\testecomandos.dproj=C:\Users\TDS\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

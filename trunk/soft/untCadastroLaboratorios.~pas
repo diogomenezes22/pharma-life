@@ -1,0 +1,147 @@
+unit untCadastroLaboratorios;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, untCadastroP, ImgList, ComCtrls, StdCtrls, ToolWin, DBCtrls,
+  Mask, Grids, DBGrids;
+
+type
+  TfrmCadastroLaboratorios = class(TfrmCadastroGeral)
+    TabSheet1: TTabSheet;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit10: TDBEdit;
+    DBLookupComboBox1: TDBLookupComboBox;
+    dbgLabs: TDBGrid;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnVoltarClick(Sender: TObject);
+    procedure btnAvanClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure btnPesquisaClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure dbgLabsDblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroLaboratorios: TfrmCadastroLaboratorios;
+
+implementation
+
+uses untbanco, untClasses, untPesquisaLaboratorios;
+
+{$R *.dfm}
+
+procedure TfrmCadastroLaboratorios.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+  dtmserver.adoLabs.Insert;
+end;
+
+procedure TfrmCadastroLaboratorios.btnEditarClick(Sender: TObject);
+begin
+  inherited;
+  dtmserver.adoLabs.Edit;
+end;
+
+procedure TfrmCadastroLaboratorios.btnVoltarClick(Sender: TObject);
+begin
+  inherited;
+  dtmserver.adoLabs.Prior;
+end;
+
+procedure TfrmCadastroLaboratorios.btnAvanClick(Sender: TObject);
+begin
+  inherited;
+  dtmserver.adoLabs.Next;
+end;
+
+procedure TfrmCadastroLaboratorios.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+    if (setQuestion('Deseja desfazer as alterações?')= true) then
+  begin
+  dtmserver.adoLabs.CancelUpdates;
+  end
+  else
+  begin
+  dtmserver.adoLabs.Edit;
+  end;
+
+
+end;
+
+procedure TfrmCadastroLaboratorios.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+  dtmserver.adoLabs.Post;
+  dtmserver.adoLabs.Refresh;
+end;
+
+procedure TfrmCadastroLaboratorios.btnExcluirClick(Sender: TObject);
+begin
+  inherited;
+ if (setQuestion('Deseja apagar o registro atual?') = true) then
+  begin
+  setMensagemSTB('Dados apagados com sucesso!');
+  dtmserver.adoLabs.Delete;
+  end;
+end;
+
+procedure TfrmCadastroLaboratorios.btnSairClick(Sender: TObject);
+begin
+  inherited;
+  Close;
+end;
+
+
+procedure TfrmCadastroLaboratorios.btnPesquisaClick(Sender: TObject);
+begin
+  inherited;
+  if (frmPesquisaLab = nil) then begin
+  frmPesquisaLab := TfrmPesquisaLab.Create(Self);
+  frmPesquisaLab.ShowModal;
+  end else
+  frmPesquisaLab.ShowModal;
+end;
+
+procedure TfrmCadastroLaboratorios.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  inherited;
+  frmCadastroLaboratorios := nil;
+end;
+
+procedure TfrmCadastroLaboratorios.dbgLabsDblClick(Sender: TObject);
+begin
+  inherited;
+  pagCadastro.ActivePageIndex := 0;
+end;
+
+end.
