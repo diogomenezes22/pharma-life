@@ -158,8 +158,9 @@
 			<DCCReference Include="untPesquisaFornecedor.pas">
 				<Form>frmPesquisaForncedor</Form>
 			</DCCReference>
-			<DCCReference Include="RClientes.pas">
-				<Form>Form1</Form>
+			<DCCReference Include="udmRelatorios.pas">
+				<Form>dtmRelatorio</Form>
+				<DesignClass>TDataModule</DesignClass>
 			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>

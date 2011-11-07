@@ -4,6 +4,7 @@ object dtmServer: TdtmServer
   Height = 171
   Width = 390
   object adoBancodedados: TADOConnection
+    Connected = True
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\tcc\db\bancodeda' +
       'dos.mdb;Mode=ReadWrite;Persist Security Info=False;Jet OLEDB:Dat' +

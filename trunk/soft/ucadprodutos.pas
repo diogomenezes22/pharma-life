@@ -75,6 +75,8 @@ type
     adoFornecedorpais: TWideStringField;
     adoFornecedoranotacoes: TMemoField;
     dtsFornecedor: TDataSource;
+    ADOQuery1: TADOQuery;
+    DataSource1: TDataSource;
   private
     { Private declarations }
   public

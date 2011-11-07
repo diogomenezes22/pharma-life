@@ -55,6 +55,12 @@ type
     ToolButton2: TToolButton;
     btCadUsuario: TToolButton;
     ConfigurarBancodedado1: TMenuItem;
+    Relatorios1: TMenuItem;
+    Clientes2: TMenuItem;
+    Produtos2: TMenuItem;
+    Fornecedores2: TMenuItem;
+    Produtos3: TMenuItem;
+    Estroue1: TMenuItem;
     procedure openJanela(FClass: TFormClass; var Instance);
     procedure FormShow(Sender: TObject);
     procedure btSairClick(Sender: TObject);
@@ -88,6 +94,10 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure CadastrodeUsuario1Click(Sender: TObject);
     procedure ConfigurarBancodedado1Click(Sender: TObject);
+    procedure Clientes2Click(Sender: TObject);
+    procedure Produtos2Click(Sender: TObject);
+    procedure Fornecedores2Click(Sender: TObject);
+    procedure Produtos3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -106,7 +116,8 @@ implementation
 uses untClasses, untCadastroP, untcadCategorias, untPesquisaGeral,
 untCadastroClientes, untCadastroForncedor, untCadastroLaboratorios,
 untCadastroGrupos, untCadastroProdutos, uSobre, U_Login, IniFiles, untMSG,
-  uCadastroUsuarios, uBaseDados, uCadMovimentacao, untCadastroMovimentacoes;
+  uCadastroUsuarios, uBaseDados, uCadMovimentacao, untCadastroMovimentacoes,
+  RClientes, udmRelatorios;
 {$R *.dfm}
 
 
@@ -125,6 +136,40 @@ end;
 procedure TfrmMenu.OSoftware1Click(Sender: TObject);
 begin
    OpenJanela(TfrmSobre, frmSobre);
+end;
+
+procedure TfrmMenu.Produtos2Click(Sender: TObject);
+begin
+ try
+   if not Assigned(dtmRelatorio) then
+      begin
+      dtmRelatorio := TdtmRelatorio.Create(Self);
+      dtmRelatorio.RProduto.Print;
+      end
+   else
+      begin
+      dtmRelatorio.RProduto.Print;
+      end;
+ finally
+   FreeAndNil(dtmRelatorio);
+ end;
+end;
+
+procedure TfrmMenu.Produtos3Click(Sender: TObject);
+begin
+try
+   if not Assigned(dtmRelatorio) then
+      begin
+      dtmRelatorio := TdtmRelatorio.Create(Self);
+      dtmRelatorio.RLaboratorio.Print;
+      end
+   else
+      begin
+      dtmRelatorio.RLaboratorio.Print;
+      end;
+finally
+  FreeAndNil(dtmRelatorio);
+end;
 end;
 
 procedure TfrmMenu.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -194,6 +239,24 @@ Except
   end;
 end;
 
+procedure TfrmMenu.Clientes2Click(Sender: TObject);
+begin
+try
+
+   if not Assigned(dtmRelatorio) then
+      begin
+      dtmRelatorio := TdtmRelatorio.Create(Self);
+      dtmRelatorio.RCliente.Print;
+      end
+   else
+      begin
+      dtmRelatorio.RCliente.Print;
+      end;
+finally
+  FreeAndNil(dtmRelatorio);
+end;
+end;
+
 procedure TfrmMenu.ConfigurarBancodedado1Click(Sender: TObject);
 begin
 openJanela(TfrmConfig, frmConfig);
@@ -234,6 +297,23 @@ openJanela(TfrmCadastroForncedor, frmCadastroForncedor);
 Except
   ShowMessage('Erro ao criar formulario! Contate o administrador do sistema!');
   end;
+end;
+
+procedure TfrmMenu.Fornecedores2Click(Sender: TObject);
+begin
+try
+   if not Assigned(dtmRelatorio) then
+      begin
+      dtmRelatorio := TdtmRelatorio.Create(Self);
+      dtmRelatorio.RFornecedor.Print;
+      end
+   else
+      begin
+      dtmRelatorio.RFornecedor.Print;
+      end;
+finally
+  FreeAndNil(dtmRelatorio);
+end;
 end;
 
 procedure TfrmMenu.btLaboratoriosClick(Sender: TObject);
