@@ -133,11 +133,8 @@ end;
 procedure TfrmCadastroLaboratorios.btnPesquisaClick(Sender: TObject);
 begin
   inherited;
-  if (frmPesquisaLab = nil) then begin
-  frmPesquisaLab := TfrmPesquisaLab.Create(Self);
-  frmPesquisaLab.ShowModal;
-  end else
-  frmPesquisaLab.ShowModal;
+    frmPesquisaLab := TfrmPesquisaLab.Create(Self);
+    frmPesquisaLab.ShowModal;
 end;
 
 procedure TfrmCadastroLaboratorios.FormClose(Sender: TObject;

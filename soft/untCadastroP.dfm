@@ -17,6 +17,7 @@ object frmCadastroGeral: TfrmCadastroGeral
   SnapBuffer = 40
   Visible = True
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -3811,7 +3812,6 @@ object frmCadastroGeral: TfrmCadastroGeral
     Align = alTop
     Images = dtmServer.imglBotoes
     TabOrder = 1
-    ExplicitTop = 90
     object pag1Cad: TTabSheet
       Caption = 'Pagina1'
       Font.Charset = ANSI_CHARSET

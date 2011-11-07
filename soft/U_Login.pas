@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Buttons, jpeg, DB;
+  Dialogs, ExtCtrls, StdCtrls, Buttons, jpeg, DB, pngimage;
 
 type
   TFrmLogin = class(TForm)
@@ -20,6 +20,7 @@ type
     procedure btnEntrarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     { Private declarations }
@@ -57,6 +58,11 @@ begin
 end;
 
 
+
+procedure TFrmLogin.FormShow(Sender: TObject);
+begin
+   Image1.Picture.LoadFromFile('../imgs/icons/login.png');
+end;
 
 procedure TFrmLogin.btnEntrarClick(Sender: TObject);
 Var

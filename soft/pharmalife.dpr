@@ -34,20 +34,25 @@ uses
   ucadlaboratorio in 'ucadlaboratorio.pas' {dmcadlab: TDataModule},
   udmcadcategoria in 'udmcadcategoria.pas' {dmcadcategoria: TDataModule},
   ucadprodutos in 'ucadprodutos.pas' {dmcadproduto: TDataModule},
-  udmcadUsuario in 'udmcadUsuario.pas' {dmCadUsuario: TDataModule};
+  udmcadUsuario in 'udmcadUsuario.pas' {dmCadUsuario: TDataModule},
+  untPesquisaClientes in 'untPesquisaClientes.pas' {frmPesquisaClientes},
+  untPesquisaFornecedor in 'untPesquisaFornecedor.pas' {frmPesquisaForncedor},
+  RClientes in 'RClientes.pas' {Form1};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskBar := True;
+  Application.CreateForm(TForm1, Form1);
   FrmSplash := TFrmSplash.Create(Application);
   try
     FrmSplash.Show;
     FrmSplash.Update;
     Sleep(1500);
-    FrmSplash.Label1.Caption := 'Efetue o Login no Sistema.';
+    FrmSplash.Label1.Caption := 'Efetue o Login.';
   Application.Title := 'Sistema de Gerenciamento de Farmacias - Pharma Life';
+  Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TdtmServer, dtmServer);
   Application.CreateForm(TfrmMenu, frmMenu);
   Finally

@@ -10,6 +10,7 @@ type
   TFrmSplash = class(TForm)
     Image2: TImage;
     Label1: TLabel;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -22,5 +23,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrmSplash.FormShow(Sender: TObject);
+begin
+  Image2.Picture.LoadFromFile('../imgs/splashload.jpg');
+end;
 
 end.

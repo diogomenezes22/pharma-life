@@ -65,7 +65,9 @@ object dmcadproduto: Tdmcadproduto
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'SELECT * FROM tlb_produtos')
+      
+        'SELECT  cod, codigo_barra, prod_nome, descricao FROM tlb_produto' +
+        's')
     Left = 28
     Top = 184
   end

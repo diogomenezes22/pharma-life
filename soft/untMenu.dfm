@@ -858,14 +858,16 @@ object frmMenu: TfrmMenu
   TextHeight = 13
   object imgBack: TImage
     Left = 0
-    Top = 49
+    Top = 48
     Width = 800
-    Height = 431
+    Height = 432
     Hint = 'Seja bem vindo ao Sistema Pharma Life V1.0'
     Align = alClient
     AutoSize = True
     Center = True
     Stretch = True
+    ExplicitTop = 49
+    ExplicitHeight = 431
   end
   object stbMenu: TStatusBar
     Left = 0
@@ -896,21 +898,25 @@ object frmMenu: TfrmMenu
     Left = 0
     Top = 0
     Width = 800
-    Height = 49
+    Height = 48
     Bands = <
       item
         Control = tolbPainel
         ImageIndex = -1
-        MinHeight = 41
+        MinHeight = 48
         Width = 794
       end>
+    Color = clCream
+    ParentColor = False
     object tolbPainel: TToolBar
-      Left = 12
+      Left = 11
       Top = 0
-      Width = 780
-      Height = 41
+      Width = 785
+      Height = 48
+      HelpContext = 48
       ButtonHeight = 47
       ButtonWidth = 48
+      Customizable = True
       Images = imgMenu
       ParentShowHint = False
       ShowHint = True
@@ -1105,7 +1111,7 @@ object frmMenu: TfrmMenu
     Left = 672
     Top = 56
     Bitmap = {
-      494C010109003800340020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010109003800380020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000008000000060000000010020000000000000C0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

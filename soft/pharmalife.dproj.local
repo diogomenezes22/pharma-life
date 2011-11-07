@@ -100,6 +100,8 @@
     <Transaction>2011/11/03 16:20:35.277.dfm,C:\tcc\soft\untVEntrada.dfm=</Transaction>
     <Transaction>2011/11/03 16:22:03.342.pas,C:\tcc\soft\Unit1.pas=C:\tcc\soft\udmcadUsuario.pas</Transaction>
     <Transaction>2011/11/03 16:22:03.342.dfm,C:\tcc\soft\Unit1.dfm=C:\tcc\soft\udmcadUsuario.dfm</Transaction>
+    <Transaction>2011/11/06 23:49:30.108.pas,C:\tcc\soft\Unit1.pas=C:\tcc\soft\RClientes.pas</Transaction>
+    <Transaction>2011/11/06 23:49:30.108.dfm,C:\tcc\soft\Unit1.dfm=C:\tcc\soft\RClientes.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="unitPesquisaRapidaProdutos.pas"/>
@@ -164,5 +166,11 @@
     <File Path="ucadprodutos.dfm"/>
     <File Path="udmcadUsuario.pas"/>
     <File Path="udmcadUsuario.dfm"/>
+    <File Path="untPesquisaClientes.pas"/>
+    <File Path="untPesquisaClientes.dfm"/>
+    <File Path="untPesquisaFornecedor.pas"/>
+    <File Path="untPesquisaFornecedor.dfm"/>
+    <File Path="RClientes.pas"/>
+    <File Path="RClientes.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

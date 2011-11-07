@@ -10,6 +10,8 @@ type
   TfrmPesquisaForncedor = class(TfrmPesquisaGeral)
     procedure btnPesquisaClick(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -53,6 +55,19 @@ inherited;
   dmfornecedor.adoFornecedor.Locate('empresa', dados, [loCaseInsensitive, loPartialKey]);
   frmPesquisaForncedor.Close;
   end;
+end;
+
+procedure TfrmPesquisaForncedor.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  inherited;
+  dmfornecedor.queryFornecedor.Close;
+end;
+
+procedure TfrmPesquisaForncedor.FormCreate(Sender: TObject);
+begin
+  inherited;
+  dmfornecedor.queryFornecedor.Open;
 end;
 
 end.

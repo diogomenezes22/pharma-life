@@ -7,7 +7,7 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 577
-  ExplicitHeight = 552
+  ExplicitHeight = 548
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -15,10 +15,6 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
       Caption = 'Cadastro de Fornecedor'
     end
     inherited tlbBotoes: TToolBar
-      Left = 12
-      Width = 551
-      ExplicitLeft = 12
-      ExplicitWidth = 551
       inherited btnVoltar: TToolButton
         OnClick = btnVoltarClick
       end
@@ -29,6 +25,7 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
   end
   inherited pagCadastro: TPageControl
     ActivePage = TabSheet1
+    ExplicitTop = 89
     object TabSheet1: TTabSheet [0]
       Caption = 'Tabela de Dados'
       ImageIndex = 9
@@ -60,36 +57,43 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
           item
             Expanded = False
             FieldName = 'empresa'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cnpj'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'im'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'ie'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'telefone_cel'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'telefone_comercial'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'email'
+            Width = 64
             Visible = True
           end
           item
@@ -100,26 +104,31 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
           item
             Expanded = False
             FieldName = 'rua'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'bairro'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cidade'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'estado'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'pais'
+            Width = 64
             Visible = True
           end
           item
