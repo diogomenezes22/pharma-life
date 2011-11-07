@@ -1,7 +1,7 @@
 object dmcadproduto: Tdmcadproduto
   OldCreateOrder = False
   Height = 264
-  Width = 358
+  Width = 474
   object dtsLabs: TDataSource
     DataSet = adoLabs
     Left = 29
@@ -77,6 +77,7 @@ object dmcadproduto: Tdmcadproduto
     Top = 136
   end
   object adoProdutos: TADOTable
+    Active = True
     Connection = dtmServer.adoBancodedados
     CursorType = ctStatic
     TableName = 'tlb_produtos'
@@ -307,5 +308,34 @@ object dmcadproduto: Tdmcadproduto
     DataSet = adoFornecedor
     Left = 261
     Top = 132
+  end
+  object ADOQuery1: TADOQuery
+    Active = True
+    Connection = dtmServer.adoBancodedados
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT'
+      '  PROD.cod,'#9
+      '  PROD.codigo_barra,'#9' '
+      '  PROD.prod_nome,'#9
+      '  PROD.cod_categorias,'#9
+      '  PROD.cod_grupo,'#9
+      '  PROD.valor_venda,'#9
+      '  PROD.id_univenda,'
+      ' CAT.Descricao'#9
+      'FROM'
+      ' TLB_PRODUTOS PROD'
+      'INNER JOIN'
+      
+        '  TLB_PROD_CATEGORIAS CAT ON (PROD.COD_CATEGORIAS = CAT.COD_CATE' +
+        'GORIAs) ')
+    Left = 376
+    Top = 128
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOQuery1
+    Left = 384
+    Top = 56
   end
 end

@@ -3821,6 +3821,10 @@ object frmCadastroGeral: TfrmCadastroGeral
       Font.Style = []
       ImageIndex = 10
       ParentFont = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
     end
   end
   object stbCad: TStatusBar

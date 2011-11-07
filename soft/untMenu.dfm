@@ -2,7 +2,7 @@ object frmMenu: TfrmMenu
   Left = 239
   Top = 151
   Caption = 'Sistema Pharma Life - V1.0'
-  ClientHeight = 502
+  ClientHeight = 522
   ClientWidth = 800
   Color = clCream
   Font.Charset = DEFAULT_CHARSET
@@ -860,7 +860,7 @@ object frmMenu: TfrmMenu
     Left = 0
     Top = 48
     Width = 800
-    Height = 432
+    Height = 452
     Hint = 'Seja bem vindo ao Sistema Pharma Life V1.0'
     Align = alClient
     AutoSize = True
@@ -871,7 +871,7 @@ object frmMenu: TfrmMenu
   end
   object stbMenu: TStatusBar
     Left = 0
-    Top = 480
+    Top = 500
     Width = 800
     Height = 22
     Panels = <
@@ -909,9 +909,9 @@ object frmMenu: TfrmMenu
     Color = clCream
     ParentColor = False
     object tolbPainel: TToolBar
-      Left = 11
+      Left = 12
       Top = 0
-      Width = 785
+      Width = 780
       Height = 48
       HelpContext = 48
       ButtonHeight = 47
@@ -1051,6 +1051,28 @@ object frmMenu: TfrmMenu
       end
       object Estoque2: TMenuItem
         Caption = 'Estoque'
+      end
+    end
+    object Relatorios1: TMenuItem
+      Caption = 'Relatorios'
+      object Clientes2: TMenuItem
+        Caption = 'Clientes'
+        OnClick = Clientes2Click
+      end
+      object Produtos2: TMenuItem
+        Caption = 'Produtos'
+        OnClick = Produtos2Click
+      end
+      object Fornecedores2: TMenuItem
+        Caption = 'Fornecedores'
+        OnClick = Fornecedores2Click
+      end
+      object Produtos3: TMenuItem
+        Caption = 'Laboratorios'
+        OnClick = Produtos3Click
+      end
+      object Estroue1: TMenuItem
+        Caption = 'Estque'
       end
     end
     object sobre1: TMenuItem

@@ -37,14 +37,13 @@ uses
   udmcadUsuario in 'udmcadUsuario.pas' {dmCadUsuario: TDataModule},
   untPesquisaClientes in 'untPesquisaClientes.pas' {frmPesquisaClientes},
   untPesquisaFornecedor in 'untPesquisaFornecedor.pas' {frmPesquisaForncedor},
-  RClientes in 'RClientes.pas' {Form1};
+  udmRelatorios in 'udmRelatorios.pas' {dtmRelatorio: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskBar := True;
-  Application.CreateForm(TForm1, Form1);
   FrmSplash := TFrmSplash.Create(Application);
   try
     FrmSplash.Show;
@@ -52,7 +51,6 @@ begin
     Sleep(1500);
     FrmSplash.Label1.Caption := 'Efetue o Login.';
   Application.Title := 'Sistema de Gerenciamento de Farmacias - Pharma Life';
-  Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TdtmServer, dtmServer);
   Application.CreateForm(TfrmMenu, frmMenu);
   Finally

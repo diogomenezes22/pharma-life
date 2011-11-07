@@ -70,7 +70,7 @@ begin
     try
       with adoBancodedados do
       begin
-
+        Connected := false;
         ConnectionString :=
           'Provider=Microsoft.Jet.OLEDB.4.0;' + 'Data Source=' + Source + ';' +
           'Mode=ReadWrite;' + 'Persist Security Info=False;' +
