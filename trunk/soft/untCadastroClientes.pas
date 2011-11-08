@@ -105,10 +105,11 @@ end;
 
 procedure TfrmCadastroClientes.btnCancelarClick(Sender: TObject);
 begin
-  inherited;
+
 if (setQuestion('Deseja desfazer as alterações?')= true) then
   begin
   dmCadCliente.adoClientes.Cancel;
+  inherited;
   end
   else
   begin
@@ -118,9 +119,17 @@ end;
 
 procedure TfrmCadastroClientes.btnSalvarClick(Sender: TObject);
 begin
-  dmCadCliente.adoClientes.Post;
-  dmCadCliente.adoClientes.Refresh;
-  inherited;
+  if (checka_campos(Sender)) then
+    begin
+    dmCadCliente.adoClientes.Post;
+    dmCadCliente.adoClientes.Refresh;
+    inherited;
+    end
+  else
+    begin
+    ShowMessage('Existem campos a seren preenchidos');
+    end;
+
 end;
 
 procedure TfrmCadastroClientes.btnExcluirClick(Sender: TObject);

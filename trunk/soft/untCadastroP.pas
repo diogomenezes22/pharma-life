@@ -41,7 +41,7 @@ type
   private
     { Private declarations }
   public
-     
+   function checka_campos(Sender:TObject):boolean;
     { Public declarations }
   end;
 
@@ -152,6 +152,27 @@ begin
   setCampos(true);
   btnSalvar.Enabled := false;
   btnCancelar.Enabled:= false;
+end;
+
+function TfrmCadastroGeral.checka_campos(Sender: TObject): boolean;
+var i, count:integer;
+begin
+count := 0;
+   for I := 0 to ((ComponentCount)- 1) do
+    begin
+    if (Components[i] is TDBEdit) then
+       begin
+       if (TDBedit(Components[i]).Text = '') then  count := count + 1;
+       end;
+    end;
+ if count = 0 then
+    begin
+      result := true;
+    end
+ else
+    begin
+      result := false;
+    end;
 end;
 
 procedure TfrmCadastroGeral.FormClose(Sender: TObject;
