@@ -17,9 +17,7 @@ type
     Label2: TLabel;
     cpNascimento: TDBEdit;
     Label3: TLabel;
-    cpSexo: TDBEdit;
     Label4: TLabel;
-    cpNascionalidade: TDBEdit;
     Label5: TLabel;
     cpRG: TDBEdit;
     Label6: TLabel;
@@ -51,6 +49,8 @@ type
     Label18: TLabel;
     Label19: TLabel;
     DBEdit1: TDBEdit;
+    DBComboBox1: TDBComboBox;
+    DBEdit2: TDBEdit;
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnVoltarClick(Sender: TObject);

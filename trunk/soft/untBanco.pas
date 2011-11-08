@@ -28,6 +28,7 @@ implementation
 
 procedure TdtmServer.DataModuleCreate(Sender: TObject);
 begin
+  adoBancodedados.Close;
   OpenDB;
   LoadImagens;
 end;
