@@ -1,35 +1,23 @@
 inherited frmCadastroUsuarios: TfrmCadastroUsuarios
   Caption = 'Cadastro de Usuarios'
-  OnCreate = FormCreate
   OnDestroy = FormDestroy
-  ExplicitWidth = 577
-  ExplicitHeight = 500
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
     inherited lblTitulo: TLabel
       Caption = 'Cadastro de Usuarios'
     end
-    inherited tlbBotoes: TToolBar
-      Left = 12
-      Width = 551
-      ExplicitLeft = 12
-      ExplicitWidth = 551
-    end
   end
   inherited pagCadastro: TPageControl
     inherited pag1Cad: TTabSheet
       Caption = 'Tabela de Usuarios'
       ImageIndex = 9
-      ExplicitLeft = 4
-      ExplicitTop = 41
-      ExplicitWidth = 563
-      ExplicitHeight = 371
       object DBGrid1: TDBGrid
         Left = 0
         Top = 3
         Width = 558
         Height = 310
+        Anchors = [akLeft, akTop, akRight]
         DataSource = dmCadUsuario.dtsUsuarios
         ReadOnly = True
         TabOrder = 0

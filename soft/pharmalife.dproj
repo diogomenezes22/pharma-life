@@ -111,9 +111,6 @@
 			<DCCReference Include="uBaseDados.pas">
 				<Form>frmConfig</Form>
 			</DCCReference>
-			<DCCReference Include="uPesquisaProd.pas">
-				<Form>frmPesquisaProd</Form>
-			</DCCReference>
 			<DCCReference Include="USplash.pas">
 				<Form>FrmSplash</Form>
 			</DCCReference>
@@ -161,6 +158,9 @@
 			<DCCReference Include="udmRelatorios.pas">
 				<Form>dtmRelatorio</Form>
 				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="untPesquisaCategorias.pas">
+				<Form>frmPesquisaCategorias</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>

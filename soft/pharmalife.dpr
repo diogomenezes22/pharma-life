@@ -23,7 +23,6 @@ uses
   untMSG in 'untMSG.pas',
   uCadastroUsuarios in 'uCadastroUsuarios.pas' {frmCadastroUsuarios},
   uBaseDados in 'uBaseDados.pas' {frmConfig},
-  uPesquisaProd in 'uPesquisaProd.pas' {frmPesquisaProd},
   USplash in 'USplash.pas' {FrmSplash},
   SysUtils,
   udmMovimentacao in 'udmMovimentacao.pas' {dmMovimentacao: TDataModule},
@@ -37,7 +36,8 @@ uses
   udmcadUsuario in 'udmcadUsuario.pas' {dmCadUsuario: TDataModule},
   untPesquisaClientes in 'untPesquisaClientes.pas' {frmPesquisaClientes},
   untPesquisaFornecedor in 'untPesquisaFornecedor.pas' {frmPesquisaForncedor},
-  udmRelatorios in 'udmRelatorios.pas' {dtmRelatorio: TDataModule};
+  udmRelatorios in 'udmRelatorios.pas' {dtmRelatorio: TDataModule},
+  untPesquisaCategorias in 'untPesquisaCategorias.pas' {frmPesquisaCategorias};
 
 {$R *.res}
 
@@ -53,6 +53,7 @@ begin
   Application.Title := 'Sistema de Gerenciamento de Farmacias - Pharma Life';
   Application.CreateForm(TdtmServer, dtmServer);
   Application.CreateForm(TfrmMenu, frmMenu);
+  Application.CreateForm(TfrmPesquisaCategorias, frmPesquisaCategorias);
   Finally
     FrmSplash.Free;
   end;

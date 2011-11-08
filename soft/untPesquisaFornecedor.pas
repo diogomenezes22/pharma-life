@@ -12,6 +12,7 @@ type
     procedure DBGrid1CellClick(Column: TColumn);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnAtualizarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,6 +28,18 @@ uses untbanco, untClasses, udmfornecedor;
 
 {$R *.dfm}
 
+procedure TfrmPesquisaForncedor.btnAtualizarClick(Sender: TObject);
+begin
+  inherited;
+  dmfornecedor.queryFornecedor.Close;
+  dmfornecedor.queryFornecedor.SQL.Clear;
+  dmfornecedor.queryFornecedor.SQL.Add('SELECT cod, empresa, telefone_comercial, telefone_cel FROM');
+  dmfornecedor.queryFornecedor.SQL.Add('tlb_fornecedor');
+  dmfornecedor.queryFornecedor.ExecSQL;
+  dmfornecedor.queryFornecedor.Open;
+
+end;
+
 procedure TfrmPesquisaForncedor.btnPesquisaClick(Sender: TObject);
 var consulta:string;
 begin
@@ -37,7 +50,7 @@ begin
   end else
   dmfornecedor.queryFornecedor.Close;
   dmfornecedor.queryFornecedor.SQL.Clear;
-  dmfornecedor.queryFornecedor.SQL.Add('SELECT * FROM');
+  dmfornecedor.queryFornecedor.SQL.Add('SELECT cod, empresa, telefone_comercial, telefone_cel FROM');
   dmfornecedor.queryFornecedor.SQL.Add('tlb_fornecedor');
   dmfornecedor.queryFornecedor.SQL.Add('WHERE empresa');
   dmfornecedor.queryFornecedor.SQL.Add('LIKE ''%' +consulta + '%'' ');

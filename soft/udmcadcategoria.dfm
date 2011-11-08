@@ -1,6 +1,6 @@
 object dmcadcategoria: Tdmcadcategoria
   OldCreateOrder = False
-  Height = 319
+  Height = 136
   Width = 396
   object dtsCategorias: TDataSource
     AutoEdit = False

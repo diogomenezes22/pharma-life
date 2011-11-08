@@ -65,4 +65,12 @@ object frmPesquisaGeral: TfrmPesquisaGeral
     TabOrder = 3
     OnClick = BitBtn1Click
   end
+  object btnAtualizar: TButton
+    Left = 352
+    Top = 16
+    Width = 75
+    Height = 25
+    Caption = 'Atualizar'
+    TabOrder = 4
+  end
 end

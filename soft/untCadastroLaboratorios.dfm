@@ -5,10 +5,9 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
   ClientHeight = 459
   ClientWidth = 569
   OldCreateOrder = True
-  OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 575
-  ExplicitHeight = 487
+  ExplicitHeight = 491
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -25,8 +24,8 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
       Caption = 'Cadastro de Laboratorios'
     end
     inherited tlbBotoes: TToolBar
-      Width = 554
-      ExplicitWidth = 554
+      Width = 549
+      ExplicitWidth = 549
       inherited btnVoltar: TToolButton
         OnClick = btnVoltarClick
       end
@@ -38,16 +37,19 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
   inherited pagCadastro: TPageControl
     Width = 569
     ActivePage = TabSheet1
-    ExplicitTop = 89
     ExplicitWidth = 569
     object TabSheet1: TTabSheet [0]
       Caption = 'Lista de dados'
       ImageIndex = 9
+      DesignSize = (
+        561
+        371)
       object dbgLabs: TDBGrid
         Left = 0
         Top = 0
         Width = 625
         Height = 337
+        Anchors = [akLeft, akTop, akRight]
         DataSource = dmcadlab.dtsLabs
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
@@ -127,10 +129,7 @@ inherited frmCadastroLaboratorios: TfrmCadastroLaboratorios
     end
     inherited pag1Cad: TTabSheet
       Caption = 'Dados cadastrais'
-      ExplicitLeft = 4
-      ExplicitTop = 41
       ExplicitWidth = 561
-      ExplicitHeight = 371
       object GroupBox1: TGroupBox
         Left = 0
         Top = 0

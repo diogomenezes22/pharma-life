@@ -7,7 +7,6 @@ inherited frmPesquisaProdutos: TfrmPesquisaProdutos
   OnClose = FormClose
   OnCreate = FormCreate
   ExplicitWidth = 589
-  ExplicitHeight = 448
   PixelsPerInch = 96
   TextHeight = 13
   inherited DBGrid1: TDBGrid
@@ -42,7 +41,6 @@ inherited frmPesquisaProdutos: TfrmPesquisaProdutos
       item
         Expanded = False
         FieldName = 'descricao'
-        Width = -1
         Visible = False
       end>
   end
@@ -59,7 +57,10 @@ inherited frmPesquisaProdutos: TfrmPesquisaProdutos
     Anchors = [akLeft, akTop, akRight, akBottom]
     Spacing = 3
     ExplicitLeft = 472
-    ExplicitWidth = 68
+    ExplicitWidth = 103
     ExplicitHeight = 49
+  end
+  inherited btnAtualizar: TButton
+    OnClick = btnAtualizarClick
   end
 end

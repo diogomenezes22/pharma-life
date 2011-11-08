@@ -28,6 +28,8 @@ object dtmcadgrupo: Tdtmcadgrupo
     Top = 16
   end
   object queryGrupos: TADOQuery
+    Active = True
+    Connection = dtmServer.adoBancodedados
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
