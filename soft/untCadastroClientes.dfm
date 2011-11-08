@@ -275,7 +275,7 @@ inherited frmCadastroClientes: TfrmCadastroClientes
         end
         object Label4: TLabel
           Left = 242
-          Top = 53
+          Top = 54
           Width = 71
           Height = 13
           Caption = 'Nacionalidade:'
@@ -416,7 +416,7 @@ inherited frmCadastroClientes: TfrmCadastroClientes
         end
         object DBEdit2: TDBEdit
           Left = 319
-          Top = 51
+          Top = 49
           Width = 160
           Height = 21
           BevelKind = bkFlat
@@ -849,8 +849,8 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           TabOrder = 10
         end
         object cpNotes: TDBMemo
-          Left = 95
-          Top = 199
+          Left = 101
+          Top = 194
           Width = 457
           Height = 72
           BevelKind = bkFlat
