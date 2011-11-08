@@ -3,8 +3,6 @@ inherited frmPesquisaLab: TfrmPesquisaLab
   OldCreateOrder = True
   OnClose = FormClose
   OnCreate = FormCreate
-  ExplicitWidth = 554
-  ExplicitHeight = 448
   PixelsPerInch = 96
   TextHeight = 13
   inherited DBGrid1: TDBGrid
@@ -70,7 +68,6 @@ inherited frmPesquisaLab: TfrmPesquisaLab
       item
         Expanded = False
         FieldName = 'pais'
-        Width = -1
         Visible = False
       end>
   end

@@ -213,7 +213,7 @@ end;
 
 procedure TfrmMenu.btSairClick(Sender: TObject);
 begin
-Application.Terminate;
+frmMenu.Close;
 end;
 
 procedure TfrmMenu.Timer1Timer(Sender: TObject);

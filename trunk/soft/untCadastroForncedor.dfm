@@ -4,10 +4,8 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
   Caption = 'Cadastro de Fornecedores'
   ClientHeight = 520
   OldCreateOrder = True
-  OnCreate = FormCreate
   OnDestroy = FormDestroy
-  ExplicitWidth = 577
-  ExplicitHeight = 548
+  ExplicitHeight = 552
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -25,15 +23,18 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
   end
   inherited pagCadastro: TPageControl
     ActivePage = TabSheet1
-    ExplicitTop = 89
     object TabSheet1: TTabSheet [0]
       Caption = 'Tabela de Dados'
       ImageIndex = 9
+      DesignSize = (
+        563
+        371)
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
         Width = 609
         Height = 329
+        Anchors = [akLeft, akTop, akRight]
         DataSource = dmfornecedor.dtsFornecedor
         ReadOnly = True
         TabOrder = 0
@@ -57,43 +58,36 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
           item
             Expanded = False
             FieldName = 'empresa'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cnpj'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'im'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'ie'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'telefone_cel'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'telefone_comercial'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'email'
-            Width = 64
             Visible = True
           end
           item
@@ -104,31 +98,26 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
           item
             Expanded = False
             FieldName = 'rua'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'bairro'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cidade'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'estado'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'pais'
-            Width = 64
             Visible = True
           end
           item
@@ -140,10 +129,6 @@ inherited frmCadastroForncedor: TfrmCadastroForncedor
     end
     inherited pag1Cad: TTabSheet
       Caption = 'Dados Cadastrais'
-      ExplicitLeft = 4
-      ExplicitTop = 41
-      ExplicitWidth = 563
-      ExplicitHeight = 371
       object GroupBox1: TGroupBox
         Left = 0
         Top = 0

@@ -3,7 +3,6 @@ inherited frmCadastroGrupos: TfrmCadastroGrupos
   ClientHeight = 523
   ClientWidth = 573
   OldCreateOrder = True
-  OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 579
   ExplicitHeight = 555
@@ -23,9 +22,7 @@ inherited frmCadastroGrupos: TfrmCadastroGrupos
       Caption = 'Cadastro de Grupos'
     end
     inherited tlbBotoes: TToolBar
-      Left = 12
       Width = 553
-      ExplicitLeft = 12
       ExplicitWidth = 553
       inherited btnVoltar: TToolButton
         OnClick = btnVoltarClick
@@ -42,11 +39,15 @@ inherited frmCadastroGrupos: TfrmCadastroGrupos
     object TabSheet1: TTabSheet [0]
       Caption = 'Tabela de Dados'
       ImageIndex = 9
+      DesignSize = (
+        565
+        371)
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
         Width = 561
         Height = 345
+        Anchors = [akLeft, akTop, akRight]
         DataSource = dtmcadgrupo.dtsGrupos
         ReadOnly = True
         TabOrder = 0
@@ -71,10 +72,7 @@ inherited frmCadastroGrupos: TfrmCadastroGrupos
     end
     inherited pag1Cad: TTabSheet
       Caption = 'Cadastro de Informa'#231#245'es'
-      ExplicitLeft = 4
-      ExplicitTop = 41
       ExplicitWidth = 565
-      ExplicitHeight = 371
       object GroupBox1: TGroupBox
         Left = 0
         Top = 0

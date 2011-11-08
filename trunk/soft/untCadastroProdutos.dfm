@@ -5,10 +5,9 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
   ClientHeight = 458
   ClientWidth = 597
   OldCreateOrder = True
-  OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 603
-  ExplicitHeight = 486
+  ExplicitHeight = 490
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -25,8 +24,8 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
       Caption = 'Cadastro de Produtos'
     end
     inherited tlbBotoes: TToolBar
-      Width = 582
-      ExplicitWidth = 582
+      Width = 577
+      ExplicitWidth = 577
       inherited btnVoltar: TToolButton
         OnClick = btnVoltarClick
       end
@@ -39,17 +38,20 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
     Width = 597
     Height = 552
     ActivePage = TabSheet1
-    ExplicitTop = 89
     ExplicitWidth = 597
     ExplicitHeight = 552
     object TabSheet1: TTabSheet [0]
       Caption = 'Lista de dados'
       ImageIndex = 9
+      DesignSize = (
+        589
+        507)
       object dbgProdutos: TDBGrid
         Left = 0
         Top = 0
         Width = 529
         Height = 321
+        Anchors = [akLeft, akTop, akRight]
         DataSource = dmcadproduto.dtsProdutos
         ReadOnly = True
         TabOrder = 0
@@ -89,7 +91,6 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
           item
             Expanded = False
             FieldName = 'cod_categorias'
-            Width = 64
             Visible = True
           end
           item
@@ -100,49 +101,41 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
           item
             Expanded = False
             FieldName = 'id_fornecedor'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'id_laboratorio'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'ICMS'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'IPI'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'estoque_minimo'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'estoque_maximo'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'valor_compra'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'valor_venda'
-            Width = 64
             Visible = True
           end
           item
@@ -158,15 +151,12 @@ inherited frmCadastroProdutos: TfrmCadastroProdutos
           item
             Expanded = False
             FieldName = 'receita'
-            Width = 64
             Visible = True
           end>
       end
     end
     inherited pag1Cad: TTabSheet
       Caption = 'Dados para Cadastro'
-      ExplicitLeft = 4
-      ExplicitTop = 41
       ExplicitWidth = 589
       ExplicitHeight = 507
       object brBox1: TGroupBox

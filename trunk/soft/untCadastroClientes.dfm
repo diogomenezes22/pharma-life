@@ -39,16 +39,22 @@ inherited frmCadastroClientes: TfrmCadastroClientes
   inherited pagCadastro: TPageControl
     Width = 569
     Height = 496
+    ActivePage = TabSheet1
+    MultiLine = True
     ExplicitWidth = 569
     ExplicitHeight = 496
     object TabSheet1: TTabSheet [0]
       Caption = 'Tabela de Dados'
       ImageIndex = 9
+      DesignSize = (
+        561
+        451)
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
         Width = 617
         Height = 377
+        Anchors = [akLeft, akTop, akRight]
         DataSource = dmCadCliente.dtsClientes
         ReadOnly = True
         TabOrder = 0
@@ -89,28 +95,24 @@ inherited frmCadastroClientes: TfrmCadastroClientes
             FieldName = 'data_nasc'
             Title.Alignment = taCenter
             Title.Caption = 'Data Nas'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'rg'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cpf'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'email'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
@@ -125,21 +127,18 @@ inherited frmCadastroClientes: TfrmCadastroClientes
             Expanded = False
             FieldName = 'telefone_residencial'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'telefone_celular'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'status_cliente'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
@@ -152,55 +151,47 @@ inherited frmCadastroClientes: TfrmCadastroClientes
             Expanded = False
             FieldName = 'numero'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'rua'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'bairro'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cidade'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'estado'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cep'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'pais'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'data_reg'
             Title.Alignment = taCenter
-            Width = 64
             Visible = True
           end
           item
@@ -213,8 +204,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
     end
     inherited pag1Cad: TTabSheet
       Caption = 'Ficha Cadastral'
-      ExplicitLeft = 4
-      ExplicitTop = 41
       ExplicitWidth = 561
       ExplicitHeight = 451
       object grbDados: TGroupBox
@@ -231,7 +220,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitTop = -6
         object Label1: TLabel
           Left = 7
           Top = 22

@@ -14,6 +14,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtn1Click(Sender: TObject);
+    procedure btnAtualizarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,6 +34,17 @@ procedure TfrmPesquisaProdutos.BitBtn1Click(Sender: TObject);
 begin
   inherited;
   Self.Close;
+end;
+
+procedure TfrmPesquisaProdutos.btnAtualizarClick(Sender: TObject);
+begin
+  inherited;
+  dmcadproduto.queryProdutos.Close;
+  dmcadproduto.queryProdutos.SQL.Clear;
+  dmcadproduto.queryProdutos.SQL.Add('SELECT cod, codigo_barra, prod_nome, descricao FROM');
+  dmcadproduto.queryProdutos.SQL.Add('tlb_produtos');
+  dmcadproduto.queryProdutos.ExecSQL;
+  dmcadproduto.queryProdutos.Open;
 end;
 
 procedure TfrmPesquisaProdutos.btnPesquisaClick(Sender:TObject);

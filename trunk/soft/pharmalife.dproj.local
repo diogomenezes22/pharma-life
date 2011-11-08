@@ -106,6 +106,8 @@
     <Transaction>2011/11/07 14:04:59.132.dfm,C:\tcc\soft\Unit1.dfm=C:\tcc\soft\udmRelatorios.dfm</Transaction>
     <Transaction>2011/11/07 14:05:52.650.pas,C:\tcc\soft\RClientes.pas=</Transaction>
     <Transaction>2011/11/07 14:05:52.650.dfm,C:\tcc\soft\RClientes.dfm=</Transaction>
+    <Transaction>2011/11/08 14:20:43.436.pas,C:\tcc\soft\uPesquisaProd.pas=</Transaction>
+    <Transaction>2011/11/08 14:20:43.436.dfm,C:\tcc\soft\uPesquisaProd.dfm=</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="unitPesquisaRapidaProdutos.pas"/>
@@ -148,8 +150,6 @@
     <File Path="uCadastroUsuarios.dfm"/>
     <File Path="uBaseDados.pas"/>
     <File Path="uBaseDados.dfm"/>
-    <File Path="uPesquisaProd.pas"/>
-    <File Path="uPesquisaProd.dfm"/>
     <File Path="USplash.pas"/>
     <File Path="USplash.dfm"/>
     <File Path="udmMovimentacao.pas"/>
@@ -176,5 +176,7 @@
     <File Path="untPesquisaFornecedor.dfm"/>
     <File Path="udmRelatorios.pas"/>
     <File Path="udmRelatorios.dfm"/>
+    <File Path="untPesquisaCategorias.pas"/>
+    <File Path="untPesquisaCategorias.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

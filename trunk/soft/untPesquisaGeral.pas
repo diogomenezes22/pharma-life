@@ -13,6 +13,7 @@ type
     editPesquisa: TEdit;
     btnPesquisa: TButton;
     BitBtn1: TBitBtn;
+    btnAtualizar: TButton;
     procedure BitBtn1Click(Sender: TObject);
     private
     { Private declarations }

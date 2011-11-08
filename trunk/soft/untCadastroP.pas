@@ -28,14 +28,15 @@ type
     procedure setBotoes(Sender: TObject; btnStatus:boolean);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnSairClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -105,12 +106,6 @@ begin
 pagCadastro.ActivePageIndex := 1;
 end;
 
-procedure TfrmCadastroGeral.btnSairClick(Sender: TObject);
-begin
-Close;
-end;
-
-
 procedure TfrmCadastroGeral.FormShow(Sender: TObject);
 begin
    btnSalvar.Enabled:=false;
@@ -145,6 +140,12 @@ begin
   setMensagemSTB('');
 end;
 
+procedure TfrmCadastroGeral.btnSairClick(Sender: TObject);
+begin
+  if (Sender is TForm) then
+     (Sender as TForm).Close;
+end;
+
 procedure TfrmCadastroGeral.btnSalvarClick(Sender: TObject);
 begin
   setBotoes(Sender, true);
@@ -156,11 +157,15 @@ end;
 procedure TfrmCadastroGeral.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-   Action := caFree
-
+   Action := caFree;
 end;
 
-
+procedure TfrmCadastroGeral.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
+begin
+  Canclose:=setQuestion('Deseja realmente fechar este formulario?'+#13+
+                        'Dados não salvos serão perdidos.');
+end;
 
 procedure TfrmCadastroGeral.FormCreate(Sender: TObject);
 begin

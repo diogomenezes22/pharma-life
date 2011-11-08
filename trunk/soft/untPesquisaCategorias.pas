@@ -10,6 +10,7 @@ type
   TfrmPesquisaCategorias = class(TfrmPesquisaGeral)
     procedure btnPesquisaClick(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure btnAtualizarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -21,9 +22,20 @@ var
 
 implementation
 
-uses untbanco, untClasses, udmcadcategoria;
+uses untClasses, udmcadcategoria;
 
 {$R *.dfm}
+
+procedure TfrmPesquisaCategorias.btnAtualizarClick(Sender: TObject);
+begin
+  inherited;
+  dmcadcategoria.queryCategorias.Close;
+  dmcadcategoria.queryCategorias.SQL.Clear;
+  dmcadcategoria.queryCategorias.SQL.Add('SELECT * FROM');
+  dmcadcategoria.queryCategorias.SQL.Add('tlb_prod_categorias');
+  dmcadcategoria.queryCategorias.ExecSQL;
+  dmcadcategoria.queryCategorias.Open;
+end;
 
 procedure TfrmPesquisaCategorias.btnPesquisaClick(Sender: TObject);
 var consulta:string;

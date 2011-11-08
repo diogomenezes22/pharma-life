@@ -5,8 +5,6 @@ inherited frmPesquisaClientes: TfrmPesquisaClientes
   OldCreateOrder = True
   OnClose = FormClose
   OnCreate = FormCreate
-  ExplicitWidth = 554
-  ExplicitHeight = 448
   PixelsPerInch = 96
   TextHeight = 13
   inherited DBGrid1: TDBGrid
@@ -44,5 +42,8 @@ inherited frmPesquisaClientes: TfrmPesquisaClientes
   end
   inherited btnPesquisa: TButton
     OnClick = btnPesquisaClick
+  end
+  inherited btnAtualizar: TButton
+    OnClick = btnAtualizarClick
   end
 end

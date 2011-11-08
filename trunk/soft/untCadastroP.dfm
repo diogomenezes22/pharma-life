@@ -17,6 +17,7 @@ object frmCadastroGeral: TfrmCadastroGeral
   SnapBuffer = 40
   Visible = True
   OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -3712,9 +3713,9 @@ object frmCadastroGeral: TfrmCadastroGeral
       ParentFont = False
     end
     object tlbBotoes: TToolBar
-      Left = 11
+      Left = 12
       Top = 0
-      Width = 556
+      Width = 551
       Height = 55
       AutoSize = True
       ButtonHeight = 55
@@ -3808,6 +3809,7 @@ object frmCadastroGeral: TfrmCadastroGeral
     Top = 89
     Width = 571
     Height = 416
+    Cursor = crHandPoint
     ActivePage = pag1Cad
     Align = alTop
     Images = dtmServer.imglBotoes
@@ -3821,10 +3823,6 @@ object frmCadastroGeral: TfrmCadastroGeral
       Font.Style = []
       ImageIndex = 10
       ParentFont = False
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
   end
   object stbCad: TStatusBar

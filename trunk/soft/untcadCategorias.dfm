@@ -4,9 +4,7 @@ inherited frmCadastroCategorias: TfrmCadastroCategorias
   Caption = 'Cadastro de Categorias - Produtos'
   ClientHeight = 509
   OldCreateOrder = True
-  OnCreate = FormCreate
   OnDestroy = FormDestroy
-  ExplicitWidth = 577
   ExplicitHeight = 541
   PixelsPerInch = 96
   TextHeight = 13
@@ -24,19 +22,19 @@ inherited frmCadastroCategorias: TfrmCadastroCategorias
     end
   end
   inherited pagCadastro: TPageControl
-    ExplicitTop = 89
+    ActivePage = pag2
     object pag2: TTabSheet [0]
       Caption = 'Dados'
       ImageIndex = 9
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      DesignSize = (
+        563
+        371)
       object dbgCategorias: TDBGrid
         Left = 8
         Top = 8
         Width = 409
         Height = 353
+        Anchors = [akLeft, akTop, akRight]
         ReadOnly = True
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
@@ -66,10 +64,6 @@ inherited frmCadastroCategorias: TfrmCadastroCategorias
     end
     inherited pag1Cad: TTabSheet
       Caption = 'Formulario'
-      ExplicitLeft = 4
-      ExplicitTop = 41
-      ExplicitWidth = 563
-      ExplicitHeight = 371
       object GroupBox1: TGroupBox
         Left = 0
         Top = 0
@@ -84,7 +78,6 @@ inherited frmCadastroCategorias: TfrmCadastroCategorias
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 521
         object lblCategoria: TLabel
           Left = 8
           Top = 34

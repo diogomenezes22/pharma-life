@@ -1,10 +1,8 @@
 inherited frmCadastroMov: TfrmCadastroMov
   Caption = 'Cadastro de Movimenta'#231#245'es [ESTOQUE]'
   ClientHeight = 434
-  OnCreate = FormCreate
   OnDestroy = FormDestroy
-  ExplicitWidth = 577
-  ExplicitHeight = 462
+  ExplicitHeight = 466
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -26,7 +24,7 @@ inherited frmCadastroMov: TfrmCadastroMov
     end
   end
   inherited pagCadastro: TPageControl
-    ExplicitTop = 89
+    ActivePage = TabSheet1
     object TabSheet1: TTabSheet [0]
       Caption = 'Produtos em Estoque'
       ImageIndex = 10
@@ -56,6 +54,7 @@ inherited frmCadastroMov: TfrmCadastroMov
         Width = 563
         Height = 249
         Align = alCustom
+        Anchors = [akLeft, akTop, akRight]
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -78,10 +77,6 @@ inherited frmCadastroMov: TfrmCadastroMov
     inherited pag1Cad: TTabSheet
       Caption = 'Cadastro de Movimenta'#231#245'es'
       ImageIndex = 1
-      ExplicitLeft = 4
-      ExplicitTop = 41
-      ExplicitWidth = 563
-      ExplicitHeight = 371
       object Label1: TLabel
         Left = 83
         Top = 63

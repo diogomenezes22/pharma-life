@@ -4,6 +4,7 @@ inherited frmPesquisaCategorias: TfrmPesquisaCategorias
   PixelsPerInch = 96
   TextHeight = 13
   inherited DBGrid1: TDBGrid
+    DataSource = dmcadcategoria.dtsCategoriasQ
     OnCellClick = DBGrid1CellClick
     Columns = <
       item
@@ -24,5 +25,8 @@ inherited frmPesquisaCategorias: TfrmPesquisaCategorias
   end
   inherited btnPesquisa: TButton
     OnClick = btnPesquisaClick
+  end
+  inherited btnAtualizar: TButton
+    OnClick = btnAtualizarClick
   end
 end

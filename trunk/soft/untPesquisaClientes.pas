@@ -13,6 +13,7 @@ type
     procedure DBGrid1CellClick(Column: TColumn);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnAtualizarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,6 +28,17 @@ implementation
 uses untbanco, untClasses;
 
 {$R *.dfm}
+
+procedure TfrmPesquisaClientes.btnAtualizarClick(Sender: TObject);
+begin
+  inherited;
+  dmCadCliente.queryClientes.Close;
+  dmCadCliente.queryClientes.SQL.Clear;
+  dmCadCliente.queryClientes.SQL.Add('SELECT cod, nome, rg, cpf FROM');
+  dmCadCliente.queryClientes.SQL.Add('tlb_clientes');
+  dmCadCliente.queryClientes.ExecSQL;
+  dmCadCliente.queryClientes.Open;
+end;
 
 procedure TfrmPesquisaClientes.btnPesquisaClick(Sender: TObject);
 var consulta:string;
