@@ -4,7 +4,7 @@ object frmMenu: TfrmMenu
   Caption = 'Sistema Pharma Life - V1.0'
   ClientHeight = 522
   ClientWidth = 800
-  Color = clCream
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -863,9 +863,7 @@ object frmMenu: TfrmMenu
     Height = 452
     Hint = 'Seja bem vindo ao Sistema Pharma Life V1.0'
     Align = alClient
-    AutoSize = True
     Center = True
-    Stretch = True
     ExplicitTop = 49
     ExplicitHeight = 431
   end

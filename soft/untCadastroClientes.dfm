@@ -5,10 +5,9 @@ inherited frmCadastroClientes: TfrmCadastroClientes
   ClientHeight = 545
   ClientWidth = 569
   OldCreateOrder = True
-  OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 575
-  ExplicitHeight = 573
+  ExplicitHeight = 577
   PixelsPerInch = 96
   TextHeight = 13
   inherited clbPainel: TCoolBar
@@ -27,8 +26,8 @@ inherited frmCadastroClientes: TfrmCadastroClientes
       ExplicitWidth = 588
     end
     inherited tlbBotoes: TToolBar
-      Width = 554
-      ExplicitWidth = 554
+      Width = 549
+      ExplicitWidth = 549
       inherited btnVoltar: TToolButton
         OnClick = btnVoltarClick
       end
@@ -40,7 +39,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
   inherited pagCadastro: TPageControl
     Width = 569
     Height = 496
-    ExplicitTop = 89
     ExplicitWidth = 569
     ExplicitHeight = 496
     object TabSheet1: TTabSheet [0]
@@ -233,6 +231,7 @@ inherited frmCadastroClientes: TfrmCadastroClientes
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitTop = -6
         object Label1: TLabel
           Left = 7
           Top = 22
@@ -267,7 +266,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Width = 27
           Height = 13
           Caption = 'Sexo:'
-          FocusControl = cpSexo
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -276,12 +274,11 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           ParentFont = False
         end
         object Label4: TLabel
-          Left = 142
-          Top = 51
+          Left = 242
+          Top = 53
           Width = 71
           Height = 13
           Caption = 'Nacionalidade:'
-          FocusControl = cpNascionalidade
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -318,16 +315,16 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           ParentFont = False
         end
         object cpNome: TDBEdit
-          Left = 100
+          Left = 97
           Top = 21
           Width = 201
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BiDiMode = bdLeftToRight
           BorderStyle = bsNone
           CharCase = ecUpperCase
+          Color = clWhite
           DataField = 'NOME'
           DataSource = dmCadCliente.dtsClientes
           Font.Charset = ANSI_CHARSET
@@ -344,7 +341,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Top = 20
           Width = 95
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BiDiMode = bdLeftToRight
@@ -362,52 +358,11 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           ParentFont = False
           TabOrder = 1
         end
-        object cpSexo: TDBEdit
-          Left = 98
-          Top = 48
-          Width = 34
-          Height = 21
-          BevelInner = bvLowered
-          BevelKind = bkFlat
-          BevelWidth = 2
-          BorderStyle = bsNone
-          CharCase = ecUpperCase
-          DataField = 'SEXO'
-          DataSource = dmCadCliente.dtsClientes
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 2
-        end
-        object cpNascionalidade: TDBEdit
-          Left = 220
-          Top = 48
-          Width = 129
-          Height = 21
-          BevelInner = bvLowered
-          BevelKind = bkFlat
-          BevelWidth = 2
-          BorderStyle = bsNone
-          CharCase = ecUpperCase
-          DataField = 'NACIONALIDADE'
-          DataSource = dmCadCliente.dtsClientes
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 3
-        end
         object cpRG: TDBEdit
           Left = 97
           Top = 75
           Width = 119
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
@@ -421,19 +376,54 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Font.Style = []
           MaxLength = 12
           ParentFont = False
-          TabOrder = 4
+          TabOrder = 2
         end
         object cpCPF: TDBEdit
           Left = 254
           Top = 75
           Width = 160
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
           CharCase = ecUpperCase
           DataField = 'cpf'
+          DataSource = dmCadCliente.dtsClientes
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          MaxLength = 14
+          ParentFont = False
+          TabOrder = 3
+        end
+        object DBComboBox1: TDBComboBox
+          Left = 98
+          Top = 48
+          Width = 122
+          Height = 24
+          BevelEdges = []
+          BevelInner = bvLowered
+          BevelKind = bkFlat
+          BevelWidth = 2
+          DataField = 'sexo'
+          DataSource = dmCadCliente.dtsClientes
+          Items.Strings = (
+            'M'
+            'F')
+          TabOrder = 4
+        end
+        object DBEdit2: TDBEdit
+          Left = 319
+          Top = 51
+          Width = 160
+          Height = 21
+          BevelKind = bkFlat
+          BevelWidth = 2
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'nacionalidade'
           DataSource = dmCadCliente.dtsClientes
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
@@ -642,7 +632,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Top = 28
           Width = 121
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
@@ -663,7 +652,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Top = 28
           Width = 129
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
@@ -684,7 +672,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Top = 57
           Width = 193
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
@@ -704,7 +691,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Top = 84
           Width = 297
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
@@ -724,7 +710,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Top = 84
           Width = 112
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
@@ -744,7 +729,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Top = 110
           Width = 185
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
@@ -764,7 +748,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Top = 139
           Width = 121
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
@@ -867,10 +850,9 @@ inherited frmCadastroClientes: TfrmCadastroClientes
         end
         object cpNotes: TDBMemo
           Left = 95
-          Top = 197
+          Top = 199
           Width = 457
           Height = 72
-          BevelInner = bvLowered
           BevelKind = bkFlat
           DataField = 'anotacoes'
           DataSource = dmCadCliente.dtsClientes
@@ -888,7 +870,6 @@ inherited frmCadastroClientes: TfrmCadastroClientes
           Top = 110
           Width = 145
           Height = 21
-          BevelInner = bvLowered
           BevelKind = bkFlat
           BevelWidth = 2
           BorderStyle = bsNone
